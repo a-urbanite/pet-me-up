@@ -1,0 +1,12 @@
+.SearchBar {
+    display: flex;
+    justify-content: center;
+    opacity: 0.4;
+    margin: 1rem;
+}
+
+.SearchBar__input {
+    /* background-color: green */
+    height: 2rem;
+    width: 16rem;
+}

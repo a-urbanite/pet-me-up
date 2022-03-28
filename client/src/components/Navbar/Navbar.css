@@ -1,0 +1,15 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  background-color: yellow;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav__list-item {
+  font-size: 2em;
+  padding: 0.5em;
+}

@@ -1,0 +1,4 @@
+.Gallery {
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,16 @@
+.profileCard__image {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    width: 100%;
+    height: 180px;
+}
+
+.profileCard {
+    background-color: rgba(138, 71, 71, 0.863);
+    margin: 10px;
+    width: 200px;
+    height: 300px;
+    border-radius: 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    
+}
