@@ -4,13 +4,17 @@ import Header from "../Header/Header";
 import Nav from "../Navbar/Nav";
 import HomePage from "../../pages/HomePage/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar"
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 
 function App() {
   const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("http://localhost:3001/api/pets")
+    fetch(`${process.env.BASE_URL}/api/pets`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
