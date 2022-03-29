@@ -4,7 +4,7 @@ import './Header.css'
 const Header = () => {
   return (
     <>
-        <h1>Pet me Up!!!</h1>
+        <h1>Pet me Up!</h1>
         
     </>
   )
