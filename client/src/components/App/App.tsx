@@ -10,7 +10,7 @@ function App() {
   const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('https://ancient-basin-65065.herokuapp.com//api/pets')
+    fetch('https://ancient-basin-65065.herokuapp.com/api/pets')
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
