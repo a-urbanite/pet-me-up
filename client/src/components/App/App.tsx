@@ -5,10 +5,6 @@ import Nav from "../Navbar/Nav";
 import HomePage from "../../pages/HomePage/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar"
-import dotenv from 'dotenv'
-
-dotenv.config()
-
 
 function App() {
   const [data, setData] = React.useState([]);
