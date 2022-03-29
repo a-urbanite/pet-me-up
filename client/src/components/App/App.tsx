@@ -14,7 +14,7 @@ function App() {
   const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`${process.env.BASE_URL}/api/pets`)
+    fetch('https://ancient-basin-65065.herokuapp.com//api/pets')
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
