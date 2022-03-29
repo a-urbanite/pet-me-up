@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const profiles = require('./model')
 const dotenv = require('dotenv')
+const path = require('path')
 
 dotenv.config();
 
@@ -9,7 +10,7 @@ dotenv.config();
 const PORT = process.env.PORT || 3001;
 
 const app = express();
-app.use(express.static(__dirname, '..', 'client', 'build'));
+app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 
 
 const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.5zevr.mongodb.net/graduation_project?retryWrites=true&w=majority`
@@ -20,13 +21,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
-// app.get("/api", (req, res) => {
-  //     res.json({ message: "Hello from server!" });
-  //   });
-  
-  // Endpoint to serve all pet profiles
   app.get('/api/pets', (req, res) => {
     profiles.find()
     .then((result) => res.send(result))
