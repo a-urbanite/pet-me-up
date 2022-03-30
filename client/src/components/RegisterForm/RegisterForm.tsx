@@ -17,27 +17,16 @@ const RegisterForm = () => {
 
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const loggedInUser = useAppSelector((state) => state.loggedInUser)
-  
-  // const registerEmailState:string = ""
-  // const registerPasswordState:string = ""
-  // const loginEmailState:string = ""
-  // const loginPasswordState:string = ""
-  
-  // const [registerEmail, setRegisterEmail] = useState(registerEmailState);
-  // const [registerPassword, setRegisterPassword] = useState(registerPasswordState);
-  // const [loginEmail, setLoginEmail] = useState(loginEmailState);
-  // const [loginPassword, setLoginPassword] = useState(loginPasswordState);
-  
-  // const [user, setUser] = useState({} as any);
+  const loggedInUser = useAppSelector((state) => state.loggedInUser.email)
+  console.log('LOGGEDINUSER', loggedInUser)
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-      // setUser(currentUser!);
-      console.log('AUTHSTATECHANGE triggered')
-      // console.log('doogpoop', currentUser!.email)
       if (currentUser) {
-        dispatch(addUser(currentUser.email))
+        dispatch(addUser({
+          name: currentUser.displayName,
+          email: currentUser.email 
+        }))
       }
     });
     
@@ -72,10 +61,7 @@ const RegisterForm = () => {
         auth,
         formData.loginEmail as string,
         formData.loginPassword as string
-        // loginEmail,
-        // loginPassword
       );
-      // console.log(user);
     } catch (error:any) {
       console.log(error.message);
     }
@@ -98,28 +84,18 @@ const RegisterForm = () => {
           name="registerName"
           className="userForm__input"
           placeholder="Name"
-          // onChange={(event) => {
-          //   setRegisterEmail(event.target.value);
-          // }}
         />
         <input
           name="registerEmail"
           className="userForm__input"
           placeholder="Email..."
-          // onChange={(event) => {
-          //   setRegisterEmail(event.target.value);
-          // }}
         />
         <input
           name="registerPassword"
          className="userForm__input"
           placeholder="Password..."
-          // onChange={(event) => {
-          //   setRegisterPassword(event.target.value);
-          // }}
         />
         <input type="submit" value="Create User"/> 
-        {/* <button onClick={register}> Create User</button> */}
       </form>
 
       <h3 className="login-form__title"> Login </h3>
@@ -128,20 +104,13 @@ const RegisterForm = () => {
           name="loginEmail"
           className="userForm__input"
           placeholder="Email..."
-          // onChange={(event) => {
-          //   setLoginEmail(event.target.value);
-          // }}
         />
         <input
           name="loginPassword"
           className="userForm__input"
           placeholder="Password..."
-          // onChange={(event) => {
-          //   setLoginPassword(event.target.value);
-          // }}
         />
         <input type="submit" value="Log in"/> 
-        {/* <button onClick={login}> Login</button> */}
       </form>
 
       <h4 className="login-form__title"> User Logged In: </h4>

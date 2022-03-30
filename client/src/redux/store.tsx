@@ -7,7 +7,7 @@ export const userStore = configureStore({
   reducer: {
     loggedInUser: loggedInUser.reducer
   },
-  preloadedState: { loggedInUser: '' }
+  preloadedState: { loggedInUser: { email: '', name: ''} }
 })
 
 // toDoStore.subscribe(()=>{

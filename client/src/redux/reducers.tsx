@@ -2,15 +2,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export const loggedInUser = createSlice({
     name: 'loggedInUser',
-    initialState: '',
+    initialState: { email: '', name: ''},
     reducers: {
-      addUser: (state: string, action: any) => {
+      addUser: (state: any, action: any) => {
         state = action.payload
         console.log('USERSTATE', state)
         return state
       },
-      deleteUser: (state: string) => {
-        state = ''
+      deleteUser: (state: any) => {
+        state = { email: '', name: ''}
         return state
       },
   } })

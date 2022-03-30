@@ -7,7 +7,7 @@ const Gallery = ( { pets }: Pets) => {
   return (
     <div className='Gallery'>          
         {pets.map((pet: Pet) => 
-          <ProfileCard pet={pet}/>
+          <ProfileCard pet={pet} key={pet.name}/>
           )}
     </div>
   )
