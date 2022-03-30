@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
-import Nav from "../Navbar/Nav";
+import Navbar from "../Navbar/Navbar";
 import HomePage from "../../pages/HomePage/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SignUp } from '../../pages/SignUp/SignUp'
+import SignUp from '../../pages/SignUp/SignUp'
+import SignIn from '../../pages/SignIn/SignIn'
 import { ProfilePage } from "../../pages/ProfilePage/ProfilePage";
 import Footer from "../Footer/Footer";
 
@@ -24,11 +25,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-          <Nav />
+          <Navbar />
           <Routes>
             <Route path='/' element={<HomePage pets={data}/>}/>
-            <Route path='/register' element={<SignUp/>}/>
-            <Route path='/profile' element={<ProfilePage/>}/>
+            <Route path='/SignUp' element={<SignUp/>}/>
+            <Route path='/SignIn' element={<SignIn/>}/>
+            <Route path='/Profile' element={<ProfilePage/>}/>
           </Routes>
           <Footer/>
       </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Pet, Pets } from '../../types'
 import Gallery from '../../components/Gallery/Gallery'
 import Header from '../../components/Header/Header';
-import Nav from '../../components/Navbar/Nav';
+import Navbar from '../../components/Navbar/Navbar';
 import SearchBar from '../../components/SearchBar/SearchBar'
 
 

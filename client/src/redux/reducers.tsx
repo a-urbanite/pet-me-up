@@ -5,6 +5,7 @@ export const loggedInUser = createSlice({
     initialState: { email: '', name: ''},
     reducers: {
       addUser: (state: any, action: any) => {
+        console.log('PAYLOAD', action.payload)
         state = action.payload
         console.log('USERSTATE', state)
         return state

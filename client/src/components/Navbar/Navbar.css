@@ -1,6 +1,6 @@
-.nav {
+.navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   list-style: none;
   background-color: yellow;
 }
