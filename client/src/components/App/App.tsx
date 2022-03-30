@@ -7,8 +7,8 @@ import { SignUp } from '../../pages/SignUp/SignUp'
 
 function App() {
   const [data, setData] = React.useState([]);
-  // const url = 'http://localhost:3001'
-  const url = 'https://ancient-basin-65065.herokuapp.com'
+  const url = 'http://localhost:3001'
+  // const url = 'https://ancient-basin-65065.herokuapp.com'
 
   React.useEffect(() => {
     fetch(`${url}/api/pets`)
