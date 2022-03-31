@@ -30,10 +30,10 @@ function App() {
       <div className="App">
           <Navbar />
           <Routes>
-            <Route path='/' element={<HomePage pets={data}/>}/>
+            <Route path='/' element={<HomePage pets={data} setData={setData}/>}/>
             <Route path='/SignUp' element={<SignUp/>}/>
             <Route path='/SignIn' element={<SignIn/>}/>
-            <Route path='/Profile' element={<ProfilePage/>}/>
+            <Route path='/Profile' element={<ProfilePage pets={data} setData={setData}/>}/>
           </Routes>
           <Footer/>
       </div>

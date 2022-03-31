@@ -5,7 +5,7 @@ import env from 'react-dotenv'
 import { url } from "../App/App"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
-const DogProfileForm = () => {
+const DogProfileForm = ({setCount, count}: any) => {
 
     const loggedInUser = useAppSelector((state) => state.loggedInUser)
 
@@ -16,6 +16,7 @@ const DogProfileForm = () => {
     formData.ownerEmail = loggedInUser.email
     formData.ownerName = loggedInUser.name
     console.log(formData)
+    setCount( count+1)
 
 
 

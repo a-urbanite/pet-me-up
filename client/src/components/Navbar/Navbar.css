@@ -1,15 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   list-style: none;
-  background-color: yellow;
+  background-color: #89C2D9;
 }
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: white;
 }
 
 .nav__list-item {
-  font-size: 2em;
+  font-size: 25px;
   padding: 0.5em;
+  font-family: 'Abel', sans-serif;
 }
+
+

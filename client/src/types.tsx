@@ -8,7 +8,9 @@
     type: string,
     breed: string,
     image: string,
-    description: string
+    description: string,
+    ownerName: string,
+    ownerEmail: string
   }
 
  export interface Pets {

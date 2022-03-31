@@ -6,12 +6,11 @@ import Navbar from '../../components/Navbar/Navbar';
 import SearchBar from '../../components/SearchBar/SearchBar'
 
 
-
-const HomePage = ({pets}: Pets) => {
+const HomePage = ({pets, setData}: any) => {
   return (
     <>
       <Header />
-      <SearchBar />
+      <SearchBar setData={setData} pets={pets}/>
       <Gallery pets={pets} />
     </>
   )

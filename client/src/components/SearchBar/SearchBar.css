@@ -1,12 +1,18 @@
 .SearchBar {
     display: flex;
     justify-content: center;
-    opacity: 0.4;
     margin: 1rem;
+    width: 100%;
 }
+
+/* .SearchBar:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+} */
+
 
 .SearchBar__input {
     /* background-color: green */
     height: 2rem;
-    width: 16rem;
+    padding: 1rem 1rem 1rem 0.5rem;
+    width: 20rem;
 }
