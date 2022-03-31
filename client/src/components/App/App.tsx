@@ -7,11 +7,14 @@ import SignUp from '../../pages/SignUp/SignUp'
 import SignIn from '../../pages/SignIn/SignIn'
 import { ProfilePage } from "../../pages/ProfilePage/ProfilePage";
 import Footer from "../Footer/Footer";
+import env from 'react-dotenv'
+
 
 function App() {
   const [data, setData] = React.useState([]);
   // const url = 'http://localhost:3001'
-  const url = 'https://ancient-basin-65065.herokuapp.com'
+  // const url = 'https://ancient-basin-65065.herokuapp.com'
+  const url = env.URL || 'http://localhost:3001'
 
   React.useEffect(() => {
     fetch(`${url}/api/pets`)
