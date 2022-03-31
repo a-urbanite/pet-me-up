@@ -5,7 +5,7 @@ import env from 'react-dotenv'
 import { url } from "../App/App"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
-const DogProfileForm = ({setCount, count}: any) => {
+const DogProfileForm = ({setData}: any) => {
 
     const loggedInUser = useAppSelector((state) => state.loggedInUser)
 
@@ -15,15 +15,20 @@ const DogProfileForm = ({setCount, count}: any) => {
     const formData = Object.fromEntries(new FormData(event.target));
     formData.ownerEmail = loggedInUser.email
     formData.ownerName = loggedInUser.name
-    console.log(formData)
-    setCount( count+1)
-
-
+    // console.log(formData)
+    // setCount( count+1)
 
     axios.post(`${url}/api/add-dog`, formData)
-    .then(res => console.log('Data sendt'))
-    .then(() => console.log(formData))
+    // .then(res => console.log('Data sendt', res))
+    // .then(() => console.log(formData))
     .catch(err => console.log(err.message))
+
+    fetch(`${url}/api/pets`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log('data fetch triggered')
+      setData(data)
+    })
  }
 
 
