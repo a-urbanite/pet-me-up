@@ -56,7 +56,7 @@ const SignUp = () => {
     }
     event.target.reset();
     navigate({
-      pathname: '/Profile'
+      pathname: '/SignIn'
     })
   };
 
