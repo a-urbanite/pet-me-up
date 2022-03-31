@@ -34,6 +34,14 @@ const schema = new Schema({
         type: 'string',
         required: true
     },
+    ownerEmail: {
+        type: 'string',
+        required: true
+    },
+    ownerName: {
+        type: 'string',
+        required: true
+    },
 }, { timestamps: true } )
 
 const profiles = mongoose.model('pet_profiles', schema);

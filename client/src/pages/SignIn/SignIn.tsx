@@ -68,7 +68,7 @@ const SignUp = () => {
       console.log(error.message);
     }
     navigate({
-      pathname: '/profile'
+      pathname: '/Profile'
     })
     event.target.reset();
   };

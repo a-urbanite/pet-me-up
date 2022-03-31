@@ -9,12 +9,12 @@ import { ProfilePage } from "../../pages/ProfilePage/ProfilePage";
 import Footer from "../Footer/Footer";
 import env from 'react-dotenv'
 
+export const url = env.BASE_URL || 'http://localhost:3001'
 
 function App() {
   const [data, setData] = React.useState([]);
   // const url = 'http://localhost:3001'
   // const url = 'https://ancient-basin-65065.herokuapp.com'
-  const url = env.BASE_URL || 'http://localhost:3001'
 
   React.useEffect(() => {
     fetch(`${url}/api/pets`)
