@@ -16,7 +16,9 @@ const SearchBar = ({setData, pets} :any) => {
         if (formData.keyword === '') {
           setData(data)
         } else {
-          const filteredData = data.filter((pet: any) => pet.zip === formData.keyword)
+          console.log(data)
+          const filteredData = data.filter((pet: any) => pet[formData.category as string] === formData.keyword)
+          console.log(filteredData)
           setData(filteredData)
         }
       })
@@ -39,6 +41,13 @@ const SearchBar = ({setData, pets} :any) => {
   return (
     <div className='SearchBar'>
         <form className="SearchBar__form" onSubmit={startSearch}>
+            <select name='category'>
+              <option label=" "></option>
+              <option value="type">Type</option>
+              <option value="zip">Zip Code</option>
+              <option value="gender">Gender</option>
+              <option value="age">Age</option>
+            </select>
             <input name='keyword' className='SearchBar__input' type="search" placeholder="Enter Place or zipcode"></input>    
             <input className='SearchBar__input' type="submit" hidden></input>
         </form>   

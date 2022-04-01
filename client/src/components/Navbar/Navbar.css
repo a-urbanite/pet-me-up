@@ -2,7 +2,7 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   list-style: none;
   background-color: #89C2D9;
 }

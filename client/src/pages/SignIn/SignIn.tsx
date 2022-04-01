@@ -18,6 +18,8 @@ const SignUp = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const loggedInUser = useAppSelector((state) => state.loggedInUser.email)
+
+  const [popup, setpopup] = useState('');
   // console.log('LOGGEDINUSER', loggedInUser)
 
   useEffect(() => {
@@ -31,31 +33,9 @@ const SignUp = () => {
     });
     
   }, []);
-  
-
-//   const register = async (event: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
-//     event.preventDefault()
-//     const formData = Object.fromEntries(new FormData(event.target));
-//     // console.log(formData)
-//     try {
-//       const user = await createUserWithEmailAndPassword(
-//         auth,
-//         formData.registerEmail as string,
-//         formData.registerPassword as string
-//       ); 
-//       console.log('this is user', user.user)
-//       await updateProfile(auth.currentUser!, { 
-//         displayName: formData.registerName as string
-//       }).catch(
-//         (err) => console.log(err)
-//       );
-//     } catch (error:any) {
-//       console.log(error.message);
-//     }
-//     event.target.reset();
-//   };
 
   const login = async (event: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
+    setpopup('')
     const formData = Object.fromEntries(new FormData(event.target));
     event.preventDefault()
     try {
@@ -64,12 +44,13 @@ const SignUp = () => {
         formData.loginEmail as string,
         formData.loginPassword as string
       );
+      navigate({
+        pathname: '/Profile'
+      })
     } catch (error:any) {
       console.log(error.message);
+      setpopup('Something went wrong!')
     }
-    navigate({
-      pathname: '/Profile'
-    })
     event.target.reset();
   };
 
@@ -91,6 +72,7 @@ const SignUp = () => {
     <div className="login-form">
 
       <h3 className="login-form__title"> Login </h3>
+      <p>{popup}</p>
       <form onSubmit={login} className='userForm'>
         <input
           name="loginEmail"
@@ -104,6 +86,7 @@ const SignUp = () => {
         />
         <input type="submit" value="Log in"/> 
       </form>
+
 
       {/* <h4 className="login-form__title"> User Logged In: </h4>
       {loggedInUser}
