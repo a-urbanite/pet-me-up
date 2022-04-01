@@ -9,10 +9,13 @@
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 } */
 
+.select {
+    width: 6rem  !important
+}
 
 .SearchBar__input {
     /* background-color: green */
     height: 2rem;
-    padding: 1rem 1rem 1rem 0.5rem;
+    /* padding: 1rem 1rem 1rem 0.5rem; */
     width: 20rem;
 }

@@ -41,14 +41,13 @@ const SearchBar = ({setData, pets} :any) => {
   return (
     <div className='SearchBar'>
         <form className="SearchBar__form" onSubmit={startSearch}>
-            <select name='category'>
-              <option label=" "></option>
-              <option value="type">Type</option>
+            <select name='category' className='SearchBar__input select' >
               <option value="zip">Zip Code</option>
+              <option value="type">Type</option>
               <option value="gender">Gender</option>
               <option value="age">Age</option>
             </select>
-            <input name='keyword' className='SearchBar__input' type="search" placeholder="Enter Place or zipcode"></input>    
+            <input name='keyword' className='SearchBar__input search' type="search" placeholder="Enter Place or zipcode"></input>    
             <input className='SearchBar__input' type="submit" hidden></input>
         </form>   
     </div>

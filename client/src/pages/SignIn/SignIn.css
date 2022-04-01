@@ -16,15 +16,46 @@
  }
  
  .userForm__input {
-     margin: 0.5rem;
+    width: 15%;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.2em;
+    margin: 1rem;
  }
  
  .login-form__title{
      margin-top: 1rem;
+     font-size: 28px;
  }
  
  .login-form__btn{
-     margin-top: 0.5rem;
+    width: 15%;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.2em;
+    margin: 1rem;
  }
 
- 
+ .login-form__btn:hover {
+    background-color: #296e8a;
+    color: white
+ }
+
+.log_in_btn { 
+    background-color: #296e8a;
+    color: white
+}
+
+
+ .log_in_btn{
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.2em;
+    margin: 1rem;
+ }
+
+ .account {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 28px;
+ }

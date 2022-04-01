@@ -11,6 +11,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .userForm {
@@ -26,3 +28,18 @@
 .userForm__input {
     width: 20rem;
 }
+
+.add_pet {
+    border: 1px solid black;
+    background-color: #89C2D9;
+    width: 15%;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.2em;
+    margin: 1rem;
+  }
+  
+  .add_pet:hover {
+    background-color: #296e8a;
+    color: white
+  }

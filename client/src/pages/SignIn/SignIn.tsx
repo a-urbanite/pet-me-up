@@ -80,11 +80,12 @@ const SignUp = () => {
           placeholder="Email..."
         />
         <input
+          type="password"
           name="loginPassword"
           className="userForm__input"
           placeholder="Password..."
         />
-        <input type="submit" value="Log in"/> 
+        <input className="log_in_btn" type="submit" value="Log in"/> 
       </form>
 
 
@@ -93,7 +94,7 @@ const SignUp = () => {
 
       <button className="login-form__btn" onClick={logout}> Sign Out </button> */}
 
-      <p>No Account yet? Register here</p>
+      <p className="account">No Account yet? Register here</p>
       <button className="login-form__btn" onClick={register}> Register </button>
     </div>
   );
