@@ -95,7 +95,7 @@ window.env = {
   "npm_config_engine_strict": "",
   "npm_config_description": "true",
   "_": "/Users/cristinasalazar/salt/pet_app/client/node_modules/.bin/react-dotenv",
-  "VSCODE_INSPECTOR_OPTIONS": "{\"inspectorIpc\":\"/var/folders/w9/s4k2d0cn5jvf04nchcg97rmc0000gn/T/node-cdp.27222-1.sock.deferred\",\"deferredMode\":true,\"waitForDebugger\":\"\",\"execPath\":\"/Users/cristinasalazar/.nvm/versions/node/v14.19.1/bin/node\",\"onlyEntrypoint\":false,\"autoAttachMode\":\"always\",\"openerId\":\"1d22ecc1ed1ed51eb95ea231\"}",
+  "VSCODE_INSPECTOR_OPTIONS": "{\"inspectorIpc\":\"/var/folders/w9/s4k2d0cn5jvf04nchcg97rmc0000gn/T/node-cdp.27222-1.sock.deferred\",\"deferredMode\":true,\"waitForDebugger\":\"\",\"execPath\":\"/Users/cristinasalazar/.nvm/versions/node/v14.19.1/bin/node\",\"onlyEntrypoint\":false,\"autoAttachMode\":\"always\",\"openerId\":\"bb8191d9483adddaad0ea0e3\"}",
   "npm_config_userconfig": "/Users/cristinasalazar/.npmrc",
   "npm_config_init_module": "/Users/cristinasalazar/.npm-init.js",
   "npm_package_browserslist_production_1": "not dead",
