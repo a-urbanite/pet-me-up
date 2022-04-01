@@ -18,15 +18,15 @@ const ProfileCard = ({pet}: ProfileCardProps) => {
   return (
     <article className={isClicked ? 'profileCard--clicked' : 'profileCard'}>
         <img className='profileCard__image' src={pet.image} alt={pet.breed}/>
-        <p>{pet.name}</p>
+        <p className='profileCard__name'>{pet.name}</p>
         <p>{pet.breed}</p>
         <p>Age: {pet.age}</p>
         <p hidden={!isClicked}>Gender: {pet.gender}</p>
         <p className='descr' hidden={!isClicked}>Description: {pet.description}</p>
         <p hidden={!isClicked}>Owner: {pet.ownerName}</p>
-        <a hidden={!isClicked} href={`mailto:${pet.ownerEmail}?subject=Hey! let our pets play!`}>Set a playdate!</a> 
+        <a className='profileCard__email' hidden={!isClicked} href={`mailto:${pet.ownerEmail}?subject=Hey! let our pets play!`}>Set a playdate!</a> 
         <br/>
-        <button onClick={toggle}>{isClicked ? 'Show less' : 'Show more'}</button>
+        <button className='profileCard__btn' onClick={toggle}>{isClicked ? 'Show less' : 'Show more'}</button>
         
     </article>
   )
