@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'
-import env from 'react-dotenv'
+// import env from 'react-dotenv'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -9,14 +9,14 @@ import env from 'react-dotenv'
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-console.log(env)
+console.log(process.env.FIREBASE_API_KEY)
 const firebaseConfig = {
-  apiKey: env.FIREBASE_API_KEY,
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "pet-me-up.firebaseapp.com",
   projectId: "pet-me-up",
   storageBucket: "pet-me-up.appspot.com",
   messagingSenderId: "907869999421",
-  appId: env.FIREBASE_APP_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: "G-BK22DDSGTX"
 };
 
