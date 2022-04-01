@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useNavigate } from "react-router-dom"
 import { Pet, Pets } from '../../types'
 import './ProfileCard.css'
 
@@ -7,10 +9,16 @@ interface ProfileCardProps {
 }
 
 const ProfileCard = ({pet}: ProfileCardProps) => {
-
+  const loggedInUser = useAppSelector((state) => state.loggedInUser)
   const [ isClicked, toggleisClicked ] = useState(false);
+  const navigate = useNavigate()
 
   const toggle = () => {
+    if (loggedInUser.email === '') {
+      return navigate({
+        pathname: '/SignIn'
+      })
+    }
     toggleisClicked(!isClicked)
   }
 
