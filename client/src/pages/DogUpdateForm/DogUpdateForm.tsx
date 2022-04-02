@@ -42,12 +42,18 @@ const DogProfileForm = ({setData}: any) => {
             <input type="text" name="name" defaultValue={pet.name} className="dog-profile-form__input"/>
             <input type="text" name="age" defaultValue={pet.age} className="dog-profile-form__input"/>
             <input type="text" name="zip" defaultValue={pet.zip} className="dog-profile-form__input"/>
-            <input type="text" name="gender" defaultValue={pet.gender} className="dog-profile-form__input"/>
+            <select name='gender' className='dog-profile-form__input' >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
             <input type="text" name="description" defaultValue={pet.description} className="dog-profile-form__input"/>
-            <input type="text" name="type" defaultValue={pet.type} className="dog-profile-form__input"/>
+            <select name='type' className='dog-profile-form__input' >
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="bird">Bird</option>
+            </select>
             <input type="text" name="breed" defaultValue={pet.breed} className="dog-profile-form__input"/>
             <input type="text" name="image" defaultValue={pet.image} className="dog-profile-form__input"/>
-            {/* <p className='popUp'>{popup}</p> */}
             <span>
               <Link to='../Profile' className="dog-profile-form__btn back">Back</Link>
               <input type="submit" value="Update pet" className="dog-profile-form__btn add_pet"/>

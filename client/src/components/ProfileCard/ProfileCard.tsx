@@ -25,7 +25,7 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
   }, []);
 
   const deleteProfile = async (id: string) => {
-    console.log('id', id)
+    // console.log('id', id)
     try {
       fetch(`${url}/api/pets/${id}`, { method: 'DELETE'})
     } catch (err: any) {

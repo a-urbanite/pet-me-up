@@ -37,27 +37,25 @@ const DogProfileForm = ({setData}: any) => {
       
         <h1 className="dog-profile-form__header">Dog Form</h1>
         <form action="" className="dog-profile-form" onSubmit={postDog}>
-            {/* <label className="dog-profile-form__label">Name:</label> */}
             <input type="text" name="name" placeholder='Name' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Age:</label> */}
             <input type="text" name="age" placeholder='Age' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Zip Code:</label> */}
             <input type="text" name="zip" placeholder='Zip Code' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Gender:</label> */}
-            <input type="text" name="gender" placeholder='Gender' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Description:</label> */}
+            <select name='gender' className='dog-profile-form__input' >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
             <input type="text" name="description" placeholder='Description' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Type:</label> */}
-            <input type="text" name="type" placeholder='Type' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Breed:</label> */}
+            <select name='type' className='dog-profile-form__input' >
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="bird">Bird</option>
+            </select>
             <input type="text" name="breed" placeholder='Breed' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Image Url:</label> */}
             <input type="text" name="image" placeholder='Image Url' className="dog-profile-form__input"/>
             <span>
               <Link to='../Profile' className="dog-profile-form__btn back">Back</Link>
               <input type="submit" value="Add pet" className="dog-profile-form__btn add_pet"/>
             </span>
-            {/* <button>Back</button> */}
         </form>
     </div>
   )
