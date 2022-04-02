@@ -1,12 +1,14 @@
 import React from 'react'
-import './DogProfileForm.css'
+import '../DogProfileForm/DogProfileForm.css'
 import axios from 'axios'
 import env from 'react-dotenv'
-import { url } from "../App/App"
+import { url } from "../../components/App/App"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Link, useNavigate } from "react-router-dom";
 
-const DogProfileForm = ({setData}: any) => {
+const DogProfileForm = ({setData, pet}: any) => {
+
+    console.log('-----', pet)
 
   const navigate = useNavigate()
 
@@ -43,7 +45,7 @@ const DogProfileForm = ({setData}: any) => {
   return (
     <div>
       
-        <h1 className="dog-profile-form__header">Dog Form</h1>
+        <h1 className="dog-profile-form__header">Dog Update Form</h1>
         <form action="" className="dog-profile-form" onSubmit={postDog}>
             {/* <label className="dog-profile-form__label">Name:</label> */}
             <input type="text" name="name" placeholder='Name' className="dog-profile-form__input"/>
@@ -63,7 +65,7 @@ const DogProfileForm = ({setData}: any) => {
             <input type="text" name="image" placeholder='Image Url' className="dog-profile-form__input"/>
             <span>
               <Link to='../Profile' className="dog-profile-form__btn back">Back</Link>
-              <input type="submit" value="Add pet" className="dog-profile-form__btn add_pet"/>
+              <input type="submit" value="Update pet" className="dog-profile-form__btn add_pet"/>
             </span>
             {/* <button>Back</button> */}
         </form>

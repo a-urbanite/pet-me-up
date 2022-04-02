@@ -11,7 +11,7 @@ const HomePage = ({pets, setData}: any) => {
     <>
       <Header />
       <SearchBar setData={setData} pets={pets}/>
-      <Gallery pets={pets} />
+      <Gallery pets={pets} setData={setData} />
     </>
   )
 }

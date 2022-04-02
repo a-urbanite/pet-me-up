@@ -55,6 +55,20 @@ app.use((req, res, next) => {
     .catch((err) => console.log(err))
   })
 
+  app.delete('/api/pets/:id', (req, res) => {
+    console.log(req.params.id)
+    const id = req.params.id;
+    profiles.findByIdAndDelete(id, function (err, docs) {
+      if (err){
+          console.log(err)
+      }
+      else{
+          console.log("Deleted : ", docs);
+      }
+      res.sendStatus(204)
+    });
+  })
+
   app.use('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
   });
