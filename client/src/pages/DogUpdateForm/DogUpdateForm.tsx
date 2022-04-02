@@ -17,25 +17,22 @@ const DogProfileForm = ({setData}: any) => {
   const loggedInUser = useAppSelector((state) => state.loggedInUser)
   const customizedState = location.state as CustomizedState
   const  { pet } = customizedState
-  // const [ popup, setPopup ] = useState('');
 
   const updateDog = async (event: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
     event.preventDefault()
-    // setPopup('Loading...')
     const formData = Object.fromEntries(new FormData(event.target));
     formData.ownerEmail = loggedInUser.email
     formData.ownerName = loggedInUser.name
-    // console.log('FORMDATA', formData)
 
     try {
       axios.put(`${url}/api/pets/${pet._id}`, formData)
     } catch (err: any) {
       console.log(err.message)
-    } finally {
-      // setPopup('')
-       navigate('/Profile')
-    }
- }
+    } 
+    const result = await axios.get(`${url}/api/pets`)
+    setData(result.data)
+    navigate('/Profile')
+  }
 
 
   return (
