@@ -14,7 +14,7 @@ const DogProfileForm = ({setData}: any) => {
     const loggedInUser = useAppSelector((state) => state.loggedInUser)
 
 
-  const postDog = (event: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
+  const postDog = async (event: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
     event.preventDefault()
     const formData = Object.fromEntries(new FormData(event.target));
     formData.ownerEmail = loggedInUser.email
@@ -23,12 +23,8 @@ const DogProfileForm = ({setData}: any) => {
     axios.post(`${url}/api/add-dog`, formData)
     .catch(err => console.log(err.message))
 
-    fetch(`${url}/api/pets`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log('data fetch triggered')
-      setData(data)
-    })
+    const result = await axios.get(`${url}/api/pets`)
+    setData(result.data)
 
     navigate({
       pathname: '/Profile'

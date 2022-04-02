@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { Pet, Pets } from '../../types'
 import './ProfileCard.css'
 import { url } from "../App/App"
+import axios from 'axios'
 
 interface ProfileCardProps {
     pet: Pet;
@@ -23,19 +24,16 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
     }
   }, []);
 
-  const deleteProfile = (id: string) => {
+  const deleteProfile = async (id: string) => {
     console.log('id', id)
     try {
       fetch(`${url}/api/pets/${id}`, { method: 'DELETE'})
     } catch (err: any) {
       console.log(err.message)
     }
-      fetch(`${url}/api/pets`)
-        .then((res) => res.json())
-        .then((data) => {
-          // console.log(data)
-          setData(data)
-        })
+
+    const result = await axios.get(`${url}/api/pets`)
+    setData(result.data)
   }
 
   const updateProfile = (pet: Pet) => {
