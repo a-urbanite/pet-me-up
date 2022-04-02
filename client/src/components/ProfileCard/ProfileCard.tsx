@@ -17,6 +17,12 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
   const navigate = useNavigate()
   const location = useLocation();
 
+  useEffect(() => {
+    if (location.pathname==='/Profile') {
+      toggleisClicked(true)
+    }
+  }, []);
+
   const deleteProfile = (id: string) => {
     console.log('id', id)
     try {
@@ -32,12 +38,6 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
         })
   }
 
-  useEffect(() => {
-    if (location.pathname==='/Profile') {
-      toggleisClicked(true)
-    }
-  }, []);
-
   const updateProfile = (pet: Pet) => {
     navigate('/Profile/DogUpdateForm', {state: {pet: pet}})
   } 
@@ -49,7 +49,6 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
     toggleisClicked(!isClicked)
   }
 
-  // clicked or not = true || false
   return (
     <article className={isClicked ? 'profileCard--clicked' : 'profileCard'}>
         <img className='profileCard__image' src={pet.image} alt={pet.breed}/>
@@ -70,15 +69,5 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
     </article>
   )
 }
-
-
-// name: string,
-// age: string,
-// zip: string,
-// gender: string,
-// type: string,
-// breed: string,
-// image: string,
-// description: string
 
 export default ProfileCard
