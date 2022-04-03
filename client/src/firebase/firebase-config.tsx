@@ -13,7 +13,6 @@ import env from 'react-dotenv'
 
 // console.log(env.REACT_APP_FIREBASE_API_KEY)
 
-
 const firebaseConfig = {
   apiKey: env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "pet-me-up.firebaseapp.com",

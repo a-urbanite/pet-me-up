@@ -11,7 +11,7 @@ import env from 'react-dotenv'
 import DogCreationForm from '../../pages/DogCreeationForm/DogCreationForm'
 import DogUpdateForm from '../../pages/DogUpdateForm/DogUpdateForm'
 
-export const url = env.BASE_URL || 'http://localhost:3001'
+export const url = env.REACT_APP_BASE_URL || 'http://localhost:3001'
 
 function App() {
   const [data, setData] = React.useState([]);
