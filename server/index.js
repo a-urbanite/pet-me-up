@@ -59,6 +59,7 @@ app.use((req, res, next) => {
     console.log(req.params.id)
     const id = req.params.id;
     profiles.findByIdAndDelete(id, function (err, docs) {
+      console.log('test')
       if (err){
           console.log(err)
       }
@@ -67,6 +68,22 @@ app.use((req, res, next) => {
       }
       res.sendStatus(204)
     });
+  })
+
+  app.put('/api/pets/:id', jsonParser, (req, res) => {
+    console.log('UPDATE:', req.params.id)
+    // console.log(req.body)
+    const id = req.params.id;
+    profiles.findByIdAndUpdate(id, req.body,  function (err, docs) {
+      console.log('test')
+      if (err){
+        console.log(err)
+      }
+      else{
+          console.log("Updated : ", docs);
+      }
+      res.sendStatus(204)
+    })
   })
 
   app.use('/', (req, res) => {

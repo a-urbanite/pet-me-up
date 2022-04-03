@@ -1,73 +1,63 @@
-import React from 'react'
-import '../DogProfileForm/DogProfileForm.css'
+import React, { useState } from 'react'
+import '../DogCreeationForm/DogCreationForm.css'
 import axios from 'axios'
-import env from 'react-dotenv'
 import { url } from "../../components/App/App"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+import { Pet, Pets } from '../../types'
 
-const DogProfileForm = ({setData, pet}: any) => {
+interface CustomizedState {
+  pet: Pet
+}
 
-    console.log('-----', pet)
-
+const DogProfileForm = ({setData}: any) => {
+  const location = useLocation();
   const navigate = useNavigate()
+  const loggedInUser = useAppSelector((state) => state.loggedInUser)
+  const customizedState = location.state as CustomizedState
+  const  { pet } = customizedState
 
-
-    const loggedInUser = useAppSelector((state) => state.loggedInUser)
-
-
-  const postDog = (event: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
+  const updateDog = async (event: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
     event.preventDefault()
     const formData = Object.fromEntries(new FormData(event.target));
     formData.ownerEmail = loggedInUser.email
     formData.ownerName = loggedInUser.name
-    // console.log(formData)
-    // setCount( count+1)
 
-    axios.post(`${url}/api/add-dog`, formData)
-    // .then(res => console.log('Data sendt', res))
-    // .then(() => console.log(formData))
-    .catch(err => console.log(err.message))
-
-    fetch(`${url}/api/pets`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log('data fetch triggered')
-      setData(data)
-    })
-
-    navigate({
-      pathname: '/Profile'
-    })
- }
+    try {
+      axios.put(`${url}/api/pets/${pet._id}`, formData)
+    } catch (err: any) {
+      console.log(err.message)
+    } 
+    const result = await axios.get(`${url}/api/pets`)
+    setData(result.data)
+    navigate('/Profile')
+  }
 
 
   return (
     <div>
-      
         <h1 className="dog-profile-form__header">Dog Update Form</h1>
-        <form action="" className="dog-profile-form" onSubmit={postDog}>
-            {/* <label className="dog-profile-form__label">Name:</label> */}
-            <input type="text" name="name" placeholder='Name' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Age:</label> */}
-            <input type="text" name="age" placeholder='Age' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Zip Code:</label> */}
-            <input type="text" name="zip" placeholder='Zip Code' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Gender:</label> */}
-            <input type="text" name="gender" placeholder='Gender' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Description:</label> */}
-            <input type="text" name="description" placeholder='Description' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Type:</label> */}
-            <input type="text" name="type" placeholder='Type' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Breed:</label> */}
-            <input type="text" name="breed" placeholder='Breed' className="dog-profile-form__input"/>
-            {/* <label className="dog-profile-form__label">Image Url:</label> */}
-            <input type="text" name="image" placeholder='Image Url' className="dog-profile-form__input"/>
+        <form action="" className="dog-profile-form" onSubmit={updateDog}>
+            <input type="text" name="name" defaultValue={pet.name} className="dog-profile-form__input"/>
+            <input type="text" name="age" defaultValue={pet.age} className="dog-profile-form__input"/>
+            <input type="text" name="zip" defaultValue={pet.zip} className="dog-profile-form__input"/>
+            <select name='gender' className='dog-profile-form__input' >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <input type="text" name="description" defaultValue={pet.description} className="dog-profile-form__input"/>
+            <select name='type' className='dog-profile-form__input' >
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="bird">Bird</option>
+            </select>
+            <input type="text" name="breed" defaultValue={pet.breed} className="dog-profile-form__input"/>
+            <input type="text" name="image" defaultValue={pet.image} className="dog-profile-form__input"/>
             <span>
               <Link to='../Profile' className="dog-profile-form__btn back">Back</Link>
               <input type="submit" value="Update pet" className="dog-profile-form__btn add_pet"/>
             </span>
-            {/* <button>Back</button> */}
         </form>
     </div>
   )

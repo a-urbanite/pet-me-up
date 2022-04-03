@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { Pet, Pets } from '../../types'
 import './ProfileCard.css'
 import { url } from "../App/App"
+import axios from 'axios'
 
 interface ProfileCardProps {
     pet: Pet;
@@ -17,43 +18,35 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
   const navigate = useNavigate()
   const location = useLocation();
 
-  const deleteProfile = (id: string) => {
-    console.log('id', id)
-    try {
-      fetch(`${url}/api/pets/${id}`, { method: 'DELETE'})
-    } catch (err: any) {
-      console.log(err.message)
-    }
-      fetch(`${url}/api/pets`)
-        .then((res) => res.json())
-        .then((data) => {
-          // console.log(data)
-          setData(data)
-        })
-  }
-
-  const updateProfile = () => {
-    navigate({
-      pathname: '/Profile/DogUpdateForm'
-    })
-  } 
-
   useEffect(() => {
     if (location.pathname==='/Profile') {
       toggleisClicked(true)
     }
   }, []);
 
+  const deleteProfile = async (id: string) => {
+    // console.log('id', id)
+    try {
+      fetch(`${url}/api/pets/${id}`, { method: 'DELETE'})
+    } catch (err: any) {
+      console.log(err.message)
+    }
+
+    const result = await axios.get(`${url}/api/pets`)
+    setData(result.data)
+  }
+
+  const updateProfile = (pet: Pet) => {
+    navigate('/Profile/DogUpdateForm', {state: {pet: pet}})
+  } 
+
   const toggle = () => {
     if (loggedInUser.email === '') {
-      return navigate({
-        pathname: '/SignIn'
-      })
+      return navigate('/SignIn')
     }
     toggleisClicked(!isClicked)
   }
 
-  // clicked or not = true || false
   return (
     <article className={isClicked ? 'profileCard--clicked' : 'profileCard'}>
         <img className='profileCard__image' src={pet.image} alt={pet.breed}/>
@@ -66,7 +59,7 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
         <a className='profileCard__email' hidden={!isClicked} href={`mailto:${pet.ownerEmail}?subject=Hey! let our pets play!`}>Set a playdate!</a> 
         <br/>
         { location.pathname==='/' && <button className='profileCard__btn' onClick={toggle}>{isClicked ? 'Show less' : 'Show more'}</button> }
-        {/* { location.pathname==='/Profile' && <button className='profileCard__btn' onClick={() => updateProfile()}>Edit Profile</button>} */}
+        { location.pathname==='/Profile' && <button className='profileCard__btn' onClick={() => updateProfile(pet)}>Edit Profile</button>}
         { location.pathname==='/Profile' && <button className='profileCard__btn' onClick={() => deleteProfile(pet._id)}>Delete Profile</button> }
         {/* <Link to='DogUpdateForm?test' className="profileCard__btn" pet={pet}>Update pet</Link> */}
         
@@ -74,15 +67,5 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
     </article>
   )
 }
-
-
-// name: string,
-// age: string,
-// zip: string,
-// gender: string,
-// type: string,
-// breed: string,
-// image: string,
-// description: string
 
 export default ProfileCard

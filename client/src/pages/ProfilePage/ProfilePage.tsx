@@ -2,7 +2,7 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 // import { addUser, deleteUser } from "../../redux/reducers";
 import './ProfilePage.css'
-import DogProfileForm from '../../pages/DogProfileForm/DogProfileForm';
+import DogProfileForm from '../DogCreeationForm/DogCreationForm';
 import Gallery from '../../components/Gallery/Gallery';
 import { Link } from "react-router-dom";
 
