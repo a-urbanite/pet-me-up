@@ -11,7 +11,7 @@ import env from 'react-dotenv'
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-console.log(env.REACT_APP_FIREBASE_API_KEY)
+// console.log(env.REACT_APP_FIREBASE_API_KEY)
 const firebaseConfig = {
   apiKey: env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "pet-me-up.firebaseapp.com",
