@@ -12,7 +12,6 @@ import DogCreationForm from '../../pages/DogCreeationForm/DogCreationForm'
 import DogUpdateForm from '../../pages/DogUpdateForm/DogUpdateForm'
 
 export const url = env.BASE_URL || 'http://localhost:3001'
-console.log(env.BASE_URL)
 
 function App() {
   const [data, setData] = React.useState([]);
