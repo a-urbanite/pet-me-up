@@ -15,15 +15,15 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
-app.use(cors({origin:'http://localhost:3000', credentials: true,}))
+app.use(cors())
 
 const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.5zevr.mongodb.net/graduation_project?retryWrites=true&w=majority`
 mongoose.connect(uri);
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
 
   app.get('/api/pets', (req, res) => {
     profiles.find()
