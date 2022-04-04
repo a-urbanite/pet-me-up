@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
 .profileCard__image {
     border-top-right-radius: 20px;
@@ -41,22 +42,48 @@
     text-align: justify;
 }
 
+.profileCard__btn {
+    padding: .5em;
+    border-radius: 8px;
+    border: none;
+}
+
+.profileCard__btn:hover {
+    background-color: #296e8a;
+    color: white;
+}
+
 .profileCard__name {
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-family: 'Bree Serif', serif;
 }
 
 .profileCard__email {
     font-weight: bold;
 }
 
-.profileCard__btn {
-    font-family: 'Abel', sans-serif;
-    font-size: 20px;
-    border: 1px solid black;
-    background-color: white;
+.profileCard__edit {
+    font-size: 32px;
+    background-color: #89C2D9;
+    border: none;
+    margin-right: 22px;
+    margin-top: 4px;
 }
 
-.profileCard__btn:hover {
-    color: black
+.profileCard__edit:hover {
+    color: white
 }
 
+
+
+.profileCard__delete {
+    font-size: 32px;
+    background-color: #89C2D9;
+    border: none;
+    margin-left: 22px;
+    margin-top: 4px;
+}
+
+.profileCard__delete:hover {
+    color: white
+}

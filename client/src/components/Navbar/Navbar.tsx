@@ -6,6 +6,8 @@ import { addUser, deleteUser } from "../../redux/reducers";
 import {  signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase-config";
 import { useNavigate, useLocation } from "react-router-dom"
+import { MdPets , MdOutlineLogout, MdLogin} from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate()
@@ -26,13 +28,17 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <ul className='navbar'>
-        {location.pathname !== '/' && <li className='nav__list-item'><Link to="/">Home</Link></li>}
-        {isLoggedIn && <li className='nav__list-item'><Link to="/Profile">Profile</Link> </li>}
-        {isLoggedIn && <li className='nav__list-item'><Link to="/" onClick={logout}>Sign Out</Link></li>}
-        {!isLoggedIn && <li className='nav__list-item'><Link to="/SignIn" >Sign In</Link></li>}
+    <section className='navbar'>
+      <section className='navbar__profile-home'>
+        {location.pathname !== '/' && <p className='nav__list-item'><Link to="/">Home <MdPets/></Link></p>}
+        {isLoggedIn && <p className='nav__list-item'><Link to="/Profile">Profile <CgProfile/></Link> </p>}
+      </section>
+      <section className='navbar__logOut-signIn'>
+        {isLoggedIn && <p className='nav__list-item'><Link to="/" onClick={logout}>Log 0ut <MdOutlineLogout/></Link></p>}
+        {!isLoggedIn && <p className='nav__list-item'><Link to="/SignIn" >Sign In <MdLogin/></Link></p>}
         {/* <li className='nav__list-item'><Link to="/register">{isLoggedIn ? 'Sign Out' : 'Sign In'}</Link></li> */}
-    </ul>
+      </section>
+    </section>
   )
 }
 
