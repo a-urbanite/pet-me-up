@@ -42,6 +42,17 @@
     text-align: justify;
 }
 
+.profileCard__btn {
+    padding: .5em;
+    border-radius: 8px;
+    border: none;
+}
+
+.profileCard__btn:hover {
+    background-color: #296e8a;
+    color: white;
+}
+
 .profileCard__name {
     /* font-weight: bold; */
     font-family: 'Bree Serif', serif;
