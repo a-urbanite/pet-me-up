@@ -23,7 +23,7 @@ export const ProfilePage = ({pets, setData} : any) => {
 
   return (
     <div className='userForm__wrapper'>
-      <h2 className='profile__Greeter'>Welcome {loggedInUser.name}! <br></br> This is your Profile:</h2>
+      <h2 className='profile__Greeter'>Welcome {loggedInUser.name.charAt(0).toUpperCase()+ loggedInUser.name.slice(1)}! <br></br> This is your Profile:</h2>
       {/* <DogProfileForm setData={setData}/> */}
       <Link to='DogForm' className="add_pet"  >Add a pet</Link>
       <Gallery setData={setData} pets={pets.filter((pet: any) => pet.ownerEmail === loggedInUser.email)}/>
