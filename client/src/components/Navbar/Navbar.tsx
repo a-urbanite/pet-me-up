@@ -6,7 +6,7 @@ import { addUser, deleteUser } from "../../redux/reducers";
 import {  signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase-config";
 import { useNavigate, useLocation } from "react-router-dom"
-import { MdPets , MdOutlineLogout, MdLogin} from "react-icons/md";
+import { MdPets , MdOutlineLogout, MdLogin, MdOutlineHome} from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 
 const Navbar: React.FC = () => {
@@ -30,8 +30,9 @@ const Navbar: React.FC = () => {
   return (
     <section className='navbar'>
       <section className='navbar__profile-home'>
-        {location.pathname !== '/' && <p className='nav__list-item'><Link to="/">Home <MdPets/></Link></p>}
+        {location.pathname !== '/' && <p className='nav__list-item'><Link to="/">Home <MdOutlineHome/></Link></p>}
         {isLoggedIn && <p className='nav__list-item'><Link to="/Profile">Profile <CgProfile/></Link> </p>}
+        {isLoggedIn && <p className='nav__list-item'><Link to="/About">About Us <MdPets/></Link> </p>}
       </section>
       <section className='navbar__logOut-signIn'>
         {isLoggedIn && <p className='nav__list-item'><Link to="/" onClick={logout}>Log 0ut <MdOutlineLogout/></Link></p>}
