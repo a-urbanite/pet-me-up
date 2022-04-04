@@ -51,7 +51,9 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
 
   return (
     <article className={isClicked ? 'profileCard--clicked' : 'profileCard'}>
-        <img className='profileCard__image' src={pet.image} alt={pet.breed}/>
+        <figure className='profileCard__photo'>
+          <img className='profileCard__image' src={pet.image} alt={pet.breed}/>
+        </figure>
         <p className='profileCard__name'>{pet.name}</p>
         <p>{pet.breed}</p>
         <p>Age: {pet.age}</p>
