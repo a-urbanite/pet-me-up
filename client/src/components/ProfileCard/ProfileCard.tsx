@@ -6,6 +6,8 @@ import { Pet, Pets } from '../../types'
 import './ProfileCard.css'
 import { url } from "../App/App"
 import axios from 'axios'
+import { MdDeleteOutline } from "react-icons/md";
+import { BiEdit } from "react-icons/bi";
 
 interface ProfileCardProps {
     pet: Pet;
@@ -59,8 +61,8 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
         <a className='profileCard__email' hidden={!isClicked} href={`mailto:${pet.ownerEmail}?subject=Hey! let our pets play!`}>Set a playdate!</a> 
         <br/>
         { location.pathname==='/' && <button className='profileCard__btn' onClick={toggle}>{isClicked ? 'Show less' : 'Show more'}</button> }
-        { location.pathname==='/Profile' && <button className='profileCard__btn' onClick={() => updateProfile(pet)}>Edit Profile</button>}
-        { location.pathname==='/Profile' && <button className='profileCard__btn' onClick={() => deleteProfile(pet._id)}>Delete Profile</button> }
+        { location.pathname==='/Profile' && <button className='profileCard__edit' onClick={() => updateProfile(pet)}><BiEdit/></button>}
+        { location.pathname==='/Profile' && <button className='profileCard__delete' onClick={() => deleteProfile(pet._id)}><MdDeleteOutline/></button> }
         {/* <Link to='DogUpdateForm?test' className="profileCard__btn" pet={pet}>Update pet</Link> */}
         
         
