@@ -12,6 +12,7 @@ import DogCreationForm from '../../pages/DogCreeationForm/DogCreationForm'
 import DogUpdateForm from '../../pages/DogUpdateForm/DogUpdateForm'
 import About from "../../pages/About/About"
 
+
 export const url = env.REACT_APP_BASE_URL || 'http://localhost:3001'
 function App() {
   const [data, setData] = React.useState([]);
@@ -39,6 +40,7 @@ function App() {
             <Route path='/Profile' element={<ProfilePage pets={data} setData={setData}/>}/>
             <Route path='/Profile/DogForm' element={<DogCreationForm setData={setData}/>}/>
             <Route path='/Profile/DogUpdateForm' element={<DogUpdateForm setData={setData}/>}/>
+            {/* <Route path="/Profile/Chat" element={<Chat />} /> */}
           </Routes>
           <Footer/>
       </div>
