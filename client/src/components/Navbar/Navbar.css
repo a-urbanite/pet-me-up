@@ -2,9 +2,23 @@
 
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   list-style: none;
   background-color: #89C2D9;
+}
+
+.navbar__profile-home{
+  display: flex;
+  justify-content: start;
+}
+
+.navbar__logOut-signIn {
+  display: flex;
+  justify-content: end;
+}
+
+.sign{
+  justify-content: end;
 }
 
 a {
