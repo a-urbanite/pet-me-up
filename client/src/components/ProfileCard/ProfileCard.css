@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
+
 .profileCard__image {
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     width: 100%;
     height: 180px;
+    object-fit: cover;
 }
 
 .profileCard {

@@ -10,6 +10,7 @@ import Footer from "../Footer/Footer";
 import env from 'react-dotenv'
 import DogCreationForm from '../../pages/DogCreeationForm/DogCreationForm'
 import DogUpdateForm from '../../pages/DogUpdateForm/DogUpdateForm'
+// import Chat from "../../pages/ChatPage/Chat";
 
 export const url = env.REACT_APP_BASE_URL || 'http://localhost:3001'
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path='/Profile' element={<ProfilePage pets={data} setData={setData}/>}/>
             <Route path='/Profile/DogForm' element={<DogCreationForm setData={setData}/>}/>
             <Route path='/Profile/DogUpdateForm' element={<DogUpdateForm setData={setData}/>}/>
+            {/* <Route path="/Profile/Chat" element={<Chat />} /> */}
           </Routes>
           <Footer/>
       </div>

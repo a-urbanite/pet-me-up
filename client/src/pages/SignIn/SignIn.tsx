@@ -11,6 +11,7 @@ import { auth } from "../../firebase/firebase-config";
 import "./SignIn.css"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { addUser, deleteUser } from "../../redux/reducers";
+import Header from "../../components/Header/Header";
 
 
 const SignUp = () => {
@@ -69,34 +70,38 @@ const SignUp = () => {
   }
 
   return (
-    <div className="login-form">
+    <>
+      <Header />
 
-      <h3 className="login-form__title"> Login </h3>
-      <p>{popup}</p>
-      <form onSubmit={login} className='userForm'>
-        <input
-          name="loginEmail"
-          className="userForm__input"
-          placeholder="Email..."
-        />
-        <input
-          type="password"
-          name="loginPassword"
-          className="userForm__input"
-          placeholder="Password..."
-        />
-        <input className="log_in_btn" type="submit" value="Log in"/> 
-      </form>
+      <div className="login-form">
+
+        <h3 className="login-form__title"> Login </h3>
+        <p>{popup}</p>
+        <form onSubmit={login} className='userForm'>
+          <input
+            name="loginEmail"
+            className="userForm__input"
+            placeholder="Email..."
+          />
+          <input
+            type="password"
+            name="loginPassword"
+            className="userForm__input"
+            placeholder="Password..."
+          />
+          <input className="log_in_btn" type="submit" value="Log in"/> 
+        </form>
 
 
-      {/* <h4 className="login-form__title"> User Logged In: </h4>
-      {loggedInUser}
+        {/* <h4 className="login-form__title"> User Logged In: </h4>
+        {loggedInUser}
 
-      <button className="login-form__btn" onClick={logout}> Sign Out </button> */}
+        <button className="login-form__btn" onClick={logout}> Sign Out </button> */}
 
-      <p className="account">No Account yet? Register here</p>
-      <button className="login-form__btn" onClick={register}> Register </button>
-    </div>
+        <p className="account">No Account yet? Register here</p>
+        <button className="login-form__btn" onClick={register}> Register </button>
+      </div>
+    </>
   );
 }
 
