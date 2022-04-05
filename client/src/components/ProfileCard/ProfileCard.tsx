@@ -28,14 +28,16 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
 
   const deleteProfile = async (id: string) => {
     // console.log('id', id)
-    try {
-      fetch(`${url}/api/pets/${id}`, { method: 'DELETE'})
-    } catch (err: any) {
-      console.log(err.message)
+    if (window.confirm('Do you really want to delete this pet profile?')) {
+      try {
+        fetch(`${url}/api/pets/${id}`, { method: 'DELETE'})
+      } catch (err: any) {
+        console.log(err.message)
+      }
+  
+      const result = await axios.get(`${url}/api/pets`)
+      setData(result.data)
     }
-
-    const result = await axios.get(`${url}/api/pets`)
-    setData(result.data)
   }
 
   const updateProfile = (pet: Pet) => {
@@ -63,7 +65,7 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
         <a className='profileCard__email' hidden={!isClicked} href={`mailto:${pet.ownerEmail}?subject=Hey! let our pets play!`}>Set a playdate!</a> 
         {/* <Link to='/Profile/Chat'>Chat</Link> */}
         <br/>
-        { location.pathname==='/' && <button className='profileCard__btn' onClick={toggle}>{isClicked ? 'Show less' : 'Show more'}</button> }
+        { location.pathname==='/gallery' && <button className='profileCard__btn' onClick={toggle}>{isClicked ? 'Show less' : 'Show more'}</button> }
         { location.pathname==='/Profile' && <button className='profileCard__edit' onClick={() => updateProfile(pet)}><BiEdit/></button>}
         { location.pathname==='/Profile' && <button className='profileCard__delete' onClick={() => deleteProfile(pet._id)}><MdDeleteOutline/></button> }
         {/* <Link to='DogUpdateForm?test' className="profileCard__btn" pet={pet}>Update pet</Link> */}

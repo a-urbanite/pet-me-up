@@ -19,6 +19,7 @@ const DogProfileForm = ({setData}: any) => {
     const formData = Object.fromEntries(new FormData(event.target));
     formData.ownerEmail = loggedInUser.email
     formData.ownerName = loggedInUser.name
+    console.log(formData)
 
     axios.post(`${url}/api/add-dog`, formData)
     .catch(err => console.log(err.message))
@@ -39,7 +40,9 @@ const DogProfileForm = ({setData}: any) => {
         <form action="" className="dog-profile-form" onSubmit={postDog}>
             <input type="text" name="name" placeholder='Name' className="dog-profile-form__input"/>
             <input type="text" name="age" placeholder='Age' className="dog-profile-form__input"/>
+            <input type="text" name="street_number" placeholder='Street and Number' className="dog-profile-form__input"/>
             <input type="text" name="zip" placeholder='Zip Code' className="dog-profile-form__input"/>
+            <input type="text" name="city" placeholder='City' className="dog-profile-form__input"/>
             <select name='gender' className='dog-profile-form__input' >
               <option value="male">Male</option>
               <option value="female">Female</option>
