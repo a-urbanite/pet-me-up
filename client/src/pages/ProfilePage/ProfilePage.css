@@ -48,3 +48,15 @@
     background-color: #296e8a;
     color: white
   }
+
+  .profileCard--clicked {
+      height: 600px;
+  }
+
+  .descr {
+      height: 100px;
+  }
+
+  /* .profileCard__email {
+      display: none;
+  } */
