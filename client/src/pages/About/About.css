@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+.about-us {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Abel', sans-serif;
+    background-color: #b9eff8;
+    line-height: 2.8;
+}
+
+.bout-us__img {
+  margin-right: 50px;
+}
+
+.about-us__title {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 48px;
+}
+
+.about-us-img__photo{
+    background-color: #b9eff8;
+    padding-right: 100%;
+    padding-bottom: 8%;
+    
+}
