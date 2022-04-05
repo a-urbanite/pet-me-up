@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import './Chat.css'
 
 import { ChatEngine } from 'react-chat-engine'

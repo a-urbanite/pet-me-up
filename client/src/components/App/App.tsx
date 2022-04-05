@@ -18,8 +18,8 @@ import { useAppSelector } from "../../redux/hooks";
 
 
 
-// export const url = env.REACT_APP_BASE_URL || 'http://localhost:3001'
-export const url = 'http://localhost:3001'
+export const url = env.REACT_APP_BASE_URL || 'http://localhost:3001'
+// export const url = 'http://localhost:3001'
 function App() {
   const [data, setData] = React.useState([]);
   // const url = 'https://ancient-basin-65065.herokuapp.com'
@@ -33,7 +33,7 @@ function App() {
         setData(data)
       })
   }, []);
-console.log(loggedInUser.name)
+  
   return (
     <BrowserRouter>
       <div className="App">
