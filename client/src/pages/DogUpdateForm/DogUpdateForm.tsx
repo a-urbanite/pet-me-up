@@ -41,7 +41,9 @@ const DogProfileForm = ({setData}: any) => {
         <form action="" className="dog-profile-form" onSubmit={updateDog}>
             <input type="text" name="name" defaultValue={pet.name} className="dog-profile-form__input"/>
             <input type="text" name="age" defaultValue={pet.age} className="dog-profile-form__input"/>
+            <input type="text" name="street_number" defaultValue={pet.street_number} className="dog-profile-form__input"/>
             <input type="text" name="zip" defaultValue={pet.zip} className="dog-profile-form__input"/>
+            <input type="text" name="city" defaultValue={pet.city} className="dog-profile-form__input"/>
             <select name='gender' className='dog-profile-form__input' >
               <option value="male">Male</option>
               <option value="female">Female</option>
