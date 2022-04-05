@@ -11,6 +11,10 @@ import env from 'react-dotenv'
 import DogCreationForm from '../../pages/DogCreeationForm/DogCreationForm'
 import DogUpdateForm from '../../pages/DogUpdateForm/DogUpdateForm'
 import About from "../../pages/About/About"
+import DirectChatPage from "../Chat/chat"
+import { useAppSelector } from "../../redux/hooks";
+
+
 
 
 export const url = env.REACT_APP_BASE_URL || 'http://localhost:3001'
@@ -18,7 +22,8 @@ function App() {
   const [data, setData] = React.useState([]);
   // const url = 'http://localhost:3001'
   // const url = 'https://ancient-basin-65065.herokuapp.com'
-
+  
+  const loggedInUser = useAppSelector((state) => state.loggedInUser)
   React.useEffect(() => {
     fetch(`${url}/api/pets`)
       .then((res) => res.json())
@@ -27,7 +32,7 @@ function App() {
         setData(data)
       })
   }, []);
-
+console.log(loggedInUser.name)
   return (
     <BrowserRouter>
       <div className="App">
@@ -40,8 +45,14 @@ function App() {
             <Route path='/Profile' element={<ProfilePage pets={data} setData={setData}/>}/>
             <Route path='/Profile/DogForm' element={<DogCreationForm setData={setData}/>}/>
             <Route path='/Profile/DogUpdateForm' element={<DogUpdateForm setData={setData}/>}/>
-            {/* <Route path="/Profile/Chat" element={<Chat />} /> */}
+            <Route path="/Profile/Chat" element={<DirectChatPage userName={loggedInUser.name.charAt(0).toUpperCase()+ loggedInUser.name.slice(1)} />} />
           </Routes>
+          {/* <ChatEngine
+			height='100vh'
+			userName='Cristina'
+			userSecret='multy_salty'
+			projectID='3512786c-29d4-460a-a9e8-370ca5f9ae84'
+		/> */}
           <Footer/>
       </div>
     </BrowserRouter>
