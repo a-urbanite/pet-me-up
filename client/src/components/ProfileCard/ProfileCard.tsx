@@ -6,8 +6,8 @@ import { Pet, Pets } from '../../types'
 import './ProfileCard.css'
 import { url } from "../App/App"
 import axios from 'axios'
-import { MdDeleteOutline } from "react-icons/md";
-import { BiEdit } from "react-icons/bi";
+import { MdDeleteOutline, MdOutlineMailOutline } from "react-icons/md";
+import { BiEdit, BiChat } from "react-icons/bi";
 
 interface ProfileCardProps {
     pet: Pet;
@@ -62,8 +62,9 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
         <p hidden={!isClicked}>Gender: {pet.gender}</p>
         <p className='descr' hidden={!isClicked}>Description: {pet.description}</p>
         <p hidden={!isClicked}>Owner: {pet.ownerName}</p>
-        <a className='profileCard__email' hidden={!isClicked} href={`mailto:${pet.ownerEmail}?subject=Hey! let our pets play!`}>Set a playdate!</a> 
-        {/* <Link to='/Profile/Chat'>Chat</Link> */}
+        <p className="profileCard__playDate"hidden={!isClicked}>Set a play date!</p>
+        { location.pathname==='/' && <a className='profileCard__email profile' hidden={!isClicked} href={`mailto:${pet.ownerEmail}?subject=Hey! let our pets play!`}><MdOutlineMailOutline/></a> }
+        { location.pathname==='/' &&  <Link className='profileCard__chat profile' hidden={!isClicked} to='/Profile/Chat'> <BiChat/></Link> }
         <br/>
         { location.pathname==='/gallery' && <button className='profileCard__btn' onClick={toggle}>{isClicked ? 'Show less' : 'Show more'}</button> }
         { location.pathname==='/Profile' && <button className='profileCard__edit' onClick={() => updateProfile(pet)}><BiEdit/></button>}
