@@ -3,20 +3,20 @@
 
 .about-us {
     display: flex;
+    text-align: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 3em;
-    font-size: 40px;
+    margin-top: 2em;
+    font-size: 28px;
     font-family: 'Abel', sans-serif;
     background-color: #b9eff8;
-    line-height: 1.8;
+    line-height: 1.4;
     background-image: url(https://cdn.pixabay.com/photo/2015/07/09/19/32/dog-838281_1280.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom: 600px;
-
+    padding-bottom: 460px;
 }
 
 .bout-us__img {
@@ -26,6 +26,7 @@
 .about-us__title {
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 48px;
+    margin-bottom: .5rem;
 }
 
 .about-us-img__photo{
@@ -33,4 +34,46 @@
     padding-right: 74%;
     padding-bottom: 8%;
     
+}
+
+.about__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.about__lowerSection {
+    width: 100%;
+    height: 20vh;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+.about__upperSection {
+    width: 100%;
+    /* background-color: blue; */
+}
+
+.about__saltie {
+    /* background-color: red; */
+    margin: 2em;
+    /* width: 10%; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    /* height: 10%; */
+    
+}
+
+.saltie-img {
+    height: 75%;
+    /* width: 25%; */
+}
+
+.saltie-name {
+    font-size: 20px;
+
 }

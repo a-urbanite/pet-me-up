@@ -83,8 +83,9 @@ const SignUp = () => {
           placeholder="Phone..."
         /> */}
         <input
+          type='password'
           name="registerPassword"
-         className="userForm__input"
+          className="userForm__input"
           placeholder="Password..."
           required
         />

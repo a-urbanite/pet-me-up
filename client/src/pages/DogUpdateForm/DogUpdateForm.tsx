@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../DogCreationForm/DogCreationForm.css'
 import axios from 'axios'
 import { url } from "../../components/App/App"
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
-import { Pet, Pets } from '../../types'
+import { Pet } from '../../types'
 
 interface CustomizedState {
   pet: Pet
@@ -30,13 +30,13 @@ const DogProfileForm = ({setData}: any) => {
       console.log(err.message)
     } 
     const result = await axios.get(`${url}/api/pets`)
-    setData(result.data)
+    await setData(result.data)
     navigate('/Profile')
   }
 
 
   return (
-    <div>
+    <div className='dog-form'>
         <h1 className="dog-profile-form__header">Dog Update Form</h1>
         <form action="" className="dog-profile-form" onSubmit={updateDog}>
             <input type="text" name="name" defaultValue={pet.name} className="dog-profile-form__input"/>

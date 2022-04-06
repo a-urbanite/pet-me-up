@@ -20,21 +20,20 @@
  }
 
  .gm-style-iw-t::after {
-     /* display: hidden !important; */
      height: 0px !important;
  }
 
  .gm-ui-hover-effect {
      top: 32px !important;
      right: 32px !important;
-     /* background-color: #89C2D9 !important; */
      background-color: #ffffff !important;
      border-radius: 25%;
      opacity: 100;
-     /* border-top-right-radius: 12px; */
-     /* color: white !important; */
+     box-shadow: 0 0 8px 0 rgba(0,0,0,0.3);
+
  }
 
  .gm-ui-hover-effect:hover {
     background-color: #296e8a !important;
  }
+

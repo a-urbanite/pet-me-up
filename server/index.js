@@ -7,11 +7,8 @@ const cors = require('cors')
 let bodyParser = require('body-parser')
 let jsonParser = bodyParser.json()
 const axios = require('axios')
-// import axios from 'axios'
-
 
 dotenv.config();
-
 
 const PORT = process.env.PORT || 3001;
 
@@ -22,11 +19,6 @@ app.use(cors())
 const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.5zevr.mongodb.net/graduation_project?retryWrites=true&w=majority`
 mongoose.connect(uri);
 
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   next();
-// });
-
   app.get('/api/pets', (req, res) => {
     profiles.find()
     .then((result) => res.send(result))
@@ -35,9 +27,6 @@ mongoose.connect(uri);
 
   const geocodeProfile = async ( profileObject ) => {
     const address = `${profileObject.street_number}, ${profileObject.zip}, ${profileObject.city}`
-    // console.log(address)
-    // event.preventDefault()
-    // const enteredAddress = event.target[0].value
     const newCoords = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
             address: address,
@@ -50,7 +39,6 @@ mongoose.connect(uri);
         })
         .catch((err) => {console.log(err)})
 
-    // console.log(newCoords)
     profileObject.lat = newCoords.lat
     profileObject.lng = newCoords.lng
 
@@ -80,10 +68,6 @@ mongoose.connect(uri);
   }
 
   app.post('/api/add-dog', jsonParser, async (req, res) => {
-    // console.log('Hello')
-    // console.log(req.body)
-    // const profileToCreate = req.body
-    //api call to geocodingapi
     const geocodedPofile = await geocodeProfile(req.body)
     console.log('GEOCODED PROFILE',geocodedPofile)
     addPetToDB(geocodedPofile)
@@ -109,9 +93,7 @@ mongoose.connect(uri);
 
   app.put('/api/pets/:id', jsonParser, async (req, res) => {
     console.log('UPDATE:', req.params.id)
-    // console.log(req.body)
     const id = req.params.id;
-    // const profileToUpdate = req.body
     const geocodedPofile = await geocodeProfile(req.body)
     profiles.findByIdAndUpdate(id, geocodedPofile,  function (err, docs) {
       console.log('test')

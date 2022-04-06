@@ -70,7 +70,7 @@
 .profileCard__email {
     font-weight: bold;
     font-size: 32px;
-
+    margin: 0.8em;
 }
 .profileCard__chat {
     font-weight: bold;

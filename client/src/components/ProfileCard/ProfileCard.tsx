@@ -27,7 +27,6 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
   }, []);
 
   const deleteProfile = async (id: string) => {
-    // console.log('id', id)
     if (window.confirm('Do you really want to delete this pet profile?')) {
       try {
         fetch(`${url}/api/pets/${id}`, { method: 'DELETE'})
@@ -68,10 +67,7 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
         <br/>
         { location.pathname==='/' && <button className='profileCard__btn' onClick={toggle}>{isClicked ? 'Show less' : 'Show more'}</button> }
         { location.pathname==='/Profile' && <button className='profileCard__edit' onClick={() => updateProfile(pet)}><BiEdit/></button>}
-        { location.pathname==='/Profile' && <button className='profileCard__delete' onClick={() => deleteProfile(pet._id)}><MdDeleteOutline/></button> }
-      
-        
-        
+        { location.pathname==='/Profile' && <button className='profileCard__delete' onClick={() => deleteProfile(pet._id)}><MdDeleteOutline/></button> }  
     </article>
   )
 }

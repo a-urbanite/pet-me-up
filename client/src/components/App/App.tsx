@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import Navbar from "../Navbar/Navbar";
 import HomePage from "../../pages/HomePage/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,7 +10,6 @@ import env from 'react-dotenv'
 import DogCreationForm from '../../pages/DogCreationForm/DogCreationForm'
 import DogUpdateForm from '../../pages/DogUpdateForm/DogUpdateForm'
 import About from "../../pages/About/About"
-import Gallery from "../../components/Gallery/Gallery"
 import DirectChatPage from "../Chat/chat"
 import { useAppSelector } from "../../redux/hooks";
 
@@ -28,7 +26,6 @@ function App() {
     fetch(`${url}/api/pets`)
       .then((res) => res.json())
       .then((data) => {
-        console.log('WHOLE DATA FOR HOMEPAGE FETCH', data)
         setData(data)
       })
   }, []);
@@ -46,9 +43,7 @@ function App() {
             <Route path='/Profile/DogForm' element={<DogCreationForm setData={setData}/>}/>
             <Route path='/Profile/DogUpdateForm' element={<DogUpdateForm setData={setData}/>}/>
             <Route path="/Profile/Chat" element={<DirectChatPage userName={loggedInUser.name.charAt(0).toUpperCase()+ loggedInUser.name.slice(1)} />} />
-
           </Routes>
-
           <Footer/>
       </div>
     </BrowserRouter>

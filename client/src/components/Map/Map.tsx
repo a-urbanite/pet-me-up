@@ -5,11 +5,9 @@ import './Map.css'
 
 const containerStyle = {
   width: '100%',
-  height: '99vh'
+  height: '80vh'
 };
 
-
-//map center coords needs to be outside component so map doesnt recenter on ever statechange/inforwindow open event
 const center = { lat: 59.33, lng: 18.0465 }
 
 const Map = ({pets, setData}: any) => {
@@ -29,8 +27,6 @@ return isLoaded ? (
       zoom={14}
       mapContainerStyle={containerStyle}
       clickableIcons={false}
-      // onLoad={onLoad}
-      // onUnmount={onUnmount}
     >
       {pets.map((pet: any) => 
         <Marker 
@@ -41,14 +37,9 @@ return isLoaded ? (
         )}
 
       { selectedMarker && (<InfoWindow
-        
         position={{lat: selectedMarker.lat, lng:selectedMarker.lng}}
-        onCloseClick={() => {setselectedMarker(null)}}
-        
-        >
-     
+        onCloseClick={() => {setselectedMarker(null)}}>
           <ProfileCard pet={selectedMarker} key={selectedMarker._id} setData={setData} />
-        
       </InfoWindow>)}
 
     </GoogleMap>

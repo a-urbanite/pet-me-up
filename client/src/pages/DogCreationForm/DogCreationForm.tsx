@@ -25,8 +25,8 @@ const DogProfileForm = ({setData}: any) => {
     .catch(err => console.log(err.message))
 
     const result = await axios.get(`${url}/api/pets`)
-    setData(result.data)
-
+    await setData(result.data)
+    
     navigate({
       pathname: '/Profile'
     })
@@ -34,8 +34,7 @@ const DogProfileForm = ({setData}: any) => {
 
 
   return (
-    <div>
-      
+    <div className="dog-form">
         <h1 className="dog-profile-form__header">Dog Form</h1>
         <form action="" className="dog-profile-form" onSubmit={postDog}>
             <input type="text" name="name" placeholder='Name' className="dog-profile-form__input"/>

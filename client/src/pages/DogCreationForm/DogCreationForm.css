@@ -1,3 +1,8 @@
+.dog-form {
+  margin-top: 5rem;
+  height: 90vh;
+}
+
 .dog-profile-form {
   display: flex;
   flex-direction: column;
@@ -14,6 +19,7 @@
 }
 
 .dog-profile-form__header {
+  /* margin-top: 3em; */
   text-align: center;
   margin-bottom: 1em;
   margin-top: 1em;
