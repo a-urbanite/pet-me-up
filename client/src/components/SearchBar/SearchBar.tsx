@@ -6,9 +6,8 @@ const SearchBar = ({setData, pets} :any) => {
 
   const startSearch = (event: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
     event.preventDefault()
-    //etract formdata for keyword
     const formData = Object.fromEntries(new FormData(event.target));
-    // const data = pets;
+    console.log(formData)
     
       fetch(`${url}/api/pets`)
       .then((res) => res.json())
@@ -16,38 +15,18 @@ const SearchBar = ({setData, pets} :any) => {
         if (formData.keyword === '') {
           setData(data)
         } else {
-          console.log(data)
-          const filteredData = data.filter((pet: any) => pet[formData.category as string] === formData.keyword)
-          console.log(filteredData)
+          const filteredData = data.filter((pet: any) => pet.gender === formData.keyword || pet.age === formData.keyword || pet.zip === formData.keyword)
           setData(filteredData)
         }
       })
     
-    console.log('SEARCHABR FORMDATA', formData)
-
-    //fetch from backend with keyword as query parametter
-    // fetch(`${url}/api/petsSelection`)
-    // .then((res) => res.json())
-    // .then((data) => {
-      // console.log(data)
-      //setdata(resulting array)
-    // })
-    // const data = pets;
-    // const filteredData = data.filter((pet: any) => pet.zip === formData.keyword)
-    // setData(filteredData)
     event.target.reset();
   }
 
   return (
     <div className='SearchBar'>
         <form className="SearchBar__form" onSubmit={startSearch}>
-            <select name='category' className='SearchBar__select' >
-              <option value="zip">Zip Code</option>
-              <option value="type">Type</option>
-              <option value="gender">Gender</option>
-              <option value="age">Age</option>
-            </select>
-            <input name='keyword' className='SearchBar__search' type="search" placeholder="Enter Place or zipcode"></input>    
+            <input name='keyword' className='SearchBar__search' type="search" placeholder="Gender, Age or Zipcode"></input>    
             <input className='SearchBar__input' type="submit" hidden></input>
         </form>   
     </div>

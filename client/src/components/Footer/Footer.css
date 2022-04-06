@@ -1,11 +1,11 @@
 .Footer {
     background-color: #89C2D9;
     height: 22px;
-    /* position: fixed; */
+    position: relative;
     bottom: 0;
     width: 100%;
-}
-
-.Footer__text {
     text-align: center;
 }
+/* 
+.Footer__text {
+} */
