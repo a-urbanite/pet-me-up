@@ -1,12 +1,11 @@
 .Footer {
     background-color: #89C2D9;
-    /* margin-top: 400px; */
-    height: 35px;
-    position: fixed;
+    height: 22px;
+    /* position: fixed; */
     bottom: 0;
     width: 100%;
 }
 
-.Footer_text {
+.Footer__text {
     text-align: center;
 }

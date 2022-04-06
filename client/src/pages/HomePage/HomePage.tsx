@@ -27,13 +27,13 @@ const HomePage = ({pets, setData}: any) => {
 
 
   return (
-    <>
+    <main className='home-page'>
       <Header />
       <SearchBar setData={setData} pets={pets}/>
       <button className='switchViewBtn' onClick={switchView}>Switch view</button>
       { view === 'list' && <Gallery setData={setData} pets={pets}/>}
       { view=== 'map' && <div className='mapContainer'><Map setData={setData} pets={pets} /></div>}
-    </>
+    </main>
   )
 }
 
