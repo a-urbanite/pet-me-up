@@ -13,15 +13,6 @@ interface GalleryProps {
 
 const Gallery = ( { pets, setData }: any) => {
 
-  const navigate = useNavigate()
-
-  const navigateToListView = () => {
-    navigate('/gallery')
-  }
-
-  const navigateToMapView = () => {
-    navigate('/mapview')
-  }
   return (
     <div >
       <div className='Gallery'>
