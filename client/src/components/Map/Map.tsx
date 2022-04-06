@@ -1,39 +1,71 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import React, { useMemo } from 'react'
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { Marker } from '@react-google-maps/api';
 
-const AnyReactComponent = ({ text }: any) => <div>{text}</div>;
+const containerStyle = {
+  width: '100%',
+  height: '99vh'
+};
 
-class SimpleMap extends Component {
-  static defaultProps = {
-    center: {
-      lat: 59.95,
-      lng: 30.33
-    },
-    zoom: 11
-  };
+// const center = {
+//   lat: 59.33,
+//   lng: 18.0465
+// };
 
-  render() {
-    return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyBGt7x-R0JK3B6wulskJbMLVZ4cAN4Yy4g' }}
-          defaultCenter={ {
-            lat: 59.33,
-            lng: 18.0465
-          }}
-          defaultZoom={14}
-        >
-          <AnyReactComponent
-            lat={59.33}
-            lng={18.0465}
-            text="My Marker"
-            
-          />
-        </GoogleMapReact>
-      </div>
-    );
-  }
+function Map ({pets, setData}: any) {
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: "AIzaSyBGt7x-R0JK3B6wulskJbMLVZ4cAN4Yy4g"
+  })
+
+//   const center = useMemo(() => ({ lat: 59.33, lng: 18.0465 }), []);
+  
+//   {
+//     lat: 59.33,
+//     lng: 18.0465
+//   };
+
+  const [map, setMap] = React.useState(null)
+
+  const onLoad = React.useCallback(function callback(map) {
+    const bounds = new window.google.maps.LatLngBounds();
+    map.fitBounds(bounds);
+    setMap(map)
+  }, [])
+
+  const onUnmount = React.useCallback(function callback(map) {
+    setMap(null)
+  }, [])
+
+//   const position = {
+//     lat: 59.33,
+//     lng: 18.0465
+//   }
+  
+//   const onLoad = marker => {
+//     console.log('marker: ', marker)
+//   }
+  
+// setTimeout(() => {
+// }, 100);
+
+return isLoaded ? (
+    <GoogleMap
+      center={{ lat: 59.33, lng: 18.0465 }}
+      zoom={15}
+      mapContainerStyle={containerStyle}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+    >
+
+      { /* Child components, such as markers, info windows, etc. */ }
+      {pets.map((pet: any) => 
+        <Marker key={pet._id} position={{lat: pet.lat, lng:pet.lng}} />
+        )}
+
+    </GoogleMap>
+) : <></>
+
 }
 
-export default SimpleMap;
+export default Map;

@@ -66,7 +66,7 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
         { location.pathname==='/' && <a className='profileCard__email profile' hidden={!isClicked} href={`mailto:${pet.ownerEmail}?subject=Hey! let our pets play!`}><MdOutlineMailOutline/></a> }
         { location.pathname==='/' &&  <Link className='profileCard__chat profile' hidden={!isClicked} to='/Profile/Chat'> <BiChat/></Link> }
         <br/>
-        { location.pathname==='/gallery' && <button className='profileCard__btn' onClick={toggle}>{isClicked ? 'Show less' : 'Show more'}</button> }
+        { location.pathname==='/' && <button className='profileCard__btn' onClick={toggle}>{isClicked ? 'Show less' : 'Show more'}</button> }
         { location.pathname==='/Profile' && <button className='profileCard__edit' onClick={() => updateProfile(pet)}><BiEdit/></button>}
         { location.pathname==='/Profile' && <button className='profileCard__delete' onClick={() => deleteProfile(pet._id)}><MdDeleteOutline/></button> }
         {/* <Link to='DogUpdateForm?test' className="profileCard__btn" pet={pet}>Update pet</Link> */}

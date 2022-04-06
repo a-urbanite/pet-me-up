@@ -24,12 +24,6 @@ const Gallery = ( { pets, setData }: any) => {
   }
   return (
     <div >
-      <Header />
-      <SearchBar setData={setData} pets={pets}/>
-      <span>
-        <button onClick={navigateToListView}>list view</button>
-        <button onClick={navigateToMapView}>map view</button>    
-      </span>
       <div className='Gallery'>
         {pets.map((pet: Pet) => 
           <ProfileCard pet={pet} key={pet._id} setData={setData} />

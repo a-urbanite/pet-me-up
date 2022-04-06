@@ -12,7 +12,6 @@ import DogCreationForm from '../../pages/DogCreeationForm/DogCreationForm'
 import DogUpdateForm from '../../pages/DogUpdateForm/DogUpdateForm'
 import About from "../../pages/About/About"
 import Gallery from "../../components/Gallery/Gallery"
-import MapPage from "../../pages/MapPage/MapPage"
 import DirectChatPage from "../Chat/chat"
 import { useAppSelector } from "../../redux/hooks";
 
@@ -46,8 +45,6 @@ function App() {
             <Route path='/Profile' element={<ProfilePage pets={data} setData={setData}/>}/>
             <Route path='/Profile/DogForm' element={<DogCreationForm setData={setData}/>}/>
             <Route path='/Profile/DogUpdateForm' element={<DogUpdateForm setData={setData}/>}/>
-            <Route path='/gallery' element={<Gallery pets={data} setData={setData} />} />
-            <Route path='/mapview' element={<MapPage pets={data} setData={setData} />} />
             <Route path="/Profile/Chat" element={<DirectChatPage userName={loggedInUser.name.charAt(0).toUpperCase()+ loggedInUser.name.slice(1)} />} />
 
           </Routes>
