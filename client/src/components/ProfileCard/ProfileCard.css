@@ -27,7 +27,6 @@
     font-size: 20px;
     text-align: center;
     font-family: 'Abel', sans-serif;
-    /* padding-bottom: 8px; */
     
 }
 
@@ -64,14 +63,14 @@
 }
 
 .profileCard__name {
-    /* font-weight: bold; */
-    font-family: 'Bree Serif', serif;
+    font-weight: bolder;
+    font-family: 'Abel', sans-serif;
 }
 
 .profileCard__email {
     font-weight: bold;
     font-size: 32px;
-    margin: 0.8em;
+
 }
 .profileCard__chat {
     font-weight: bold;
@@ -82,6 +81,7 @@
 .profileCard__playDate {
     font-weight: bold;
 }
+
 
 .profileCard__edit {
     font-size: 32px;

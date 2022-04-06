@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 .ce-wrapper{
-    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3em;
+    font-family: 'Abel', sans-serif;
+    height: 100vh;
 }

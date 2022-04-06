@@ -8,6 +8,7 @@ const containerStyle = {
   height: '99vh'
 };
 
+
 //map center coords needs to be outside component so map doesnt recenter on ever statechange/inforwindow open event
 const center = { lat: 59.33, lng: 18.0465 }
 
@@ -21,18 +22,6 @@ const Map = ({pets, setData}: any) => {
     googleMapsApiKey: "AIzaSyBGt7x-R0JK3B6wulskJbMLVZ4cAN4Yy4g"
   })
 
-  // const [map, setMap] = React.useState(null)
-
-  // const onLoad = React.useCallback(function callback(map) {
-  //   const bounds = new window.google.maps.LatLngBounds();
-  //   map.fitBounds(bounds);
-  //   setMap(map)
-  // }, [])
-
-  // const onUnmount = React.useCallback(function callback(map) {
-  //   setMap(null)
-  // }, [])
-
 
 return isLoaded ? (
     <GoogleMap
@@ -43,8 +32,6 @@ return isLoaded ? (
       // onLoad={onLoad}
       // onUnmount={onUnmount}
     >
-
-      { /* Child components, such as markers, info windows, etc. */ }
       {pets.map((pet: any) => 
         <Marker 
           key={pet._id} 

@@ -2,15 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 .about-us {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3em;
     font-size: 40px;
     font-family: 'Abel', sans-serif;
     background-color: #b9eff8;
-    line-height: 2.8;
+    line-height: 1.8;
+    background-image: url(https://cdn.pixabay.com/photo/2015/07/09/19/32/dog-838281_1280.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 600px;
+
 }
 
 .bout-us__img {
-  margin-right: 50px;
+  margin-right: 10px;
 }
 
 .about-us__title {
@@ -20,7 +30,7 @@
 
 .about-us-img__photo{
     background-color: #b9eff8;
-    padding-right: 100%;
+    padding-right: 74%;
     padding-bottom: 8%;
     
 }

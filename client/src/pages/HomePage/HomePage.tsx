@@ -1,12 +1,7 @@
-import React, { useState } from 'react'
-import { Pet, Pets } from '../../types'
+import { useState } from 'react'
 import Gallery from '../../components/Gallery/Gallery'
 import Header from '../../components/Header/Header';
-import Navbar from '../../components/Navbar/Navbar';
-import Navbar2 from '../../components/NavBar2/NavBar2';
 import SearchBar from '../../components/SearchBar/SearchBar'
-import { Route, Routes } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom"
 import Map from '../../components/Map/Map';
 import './HomePage.css'
 
@@ -24,16 +19,14 @@ const HomePage = ({pets, setData}: any) => {
     }
   }
 
-
-
   return (
-    <>
+    <main className='home-page'>
       <Header />
       <SearchBar setData={setData} pets={pets}/>
-      <button className='switchViewBtn' onClick={switchView}>Switch view</button>
+      <button className='home-page__switch-view-btn' onClick={switchView}>Switch view</button>
       { view === 'list' && <Gallery setData={setData} pets={pets}/>}
-      { view=== 'map' && <div className='mapContainer'><Map setData={setData} pets={pets} /></div>}
-    </>
+      { view=== 'map' && <div className='home-page__map-container'><Map setData={setData} pets={pets} /></div>}
+    </main>
   )
 }
 

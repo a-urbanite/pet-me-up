@@ -8,7 +8,7 @@ import SignIn from '../../pages/SignIn/SignIn'
 import { ProfilePage } from "../../pages/ProfilePage/ProfilePage";
 import Footer from "../Footer/Footer";
 import env from 'react-dotenv'
-import DogCreationForm from '../../pages/DogCreeationForm/DogCreationForm'
+import DogCreationForm from '../../pages/DogCreationForm/DogCreationForm'
 import DogUpdateForm from '../../pages/DogUpdateForm/DogUpdateForm'
 import About from "../../pages/About/About"
 import Gallery from "../../components/Gallery/Gallery"

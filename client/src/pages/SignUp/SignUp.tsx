@@ -62,8 +62,8 @@ const SignUp = () => {
 
 
   return (
-    <div className="login-form">
-      <h3 className="login-form__title"> Sign up </h3>
+    <div className="signup-form">
+      <h3 className="signup-form__title"> Sign up </h3>
       <form onSubmit={register} className='userForm'>
         <input
           name="registerName"
@@ -88,7 +88,7 @@ const SignUp = () => {
           placeholder="Password..."
           required
         />
-        <input type="submit" value="Create User"/> 
+        <input className="sing-up-form__btn" type="submit" value="Create User"/> 
       </form>
 
     </div>

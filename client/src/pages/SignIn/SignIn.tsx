@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import {
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut,
-  updateProfile
 } from "firebase/auth";
 import { auth } from "../../firebase/firebase-config";
 import "./SignIn.css"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { addUser, deleteUser } from "../../redux/reducers";
+import { addUser } from "../../redux/reducers";
 import Header from "../../components/Header/Header";
 
 
@@ -21,7 +18,6 @@ const SignUp = () => {
   const loggedInUser = useAppSelector((state) => state.loggedInUser.email)
 
   const [popup, setpopup] = useState('');
-  // console.log('LOGGEDINUSER', loggedInUser)
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -55,13 +51,6 @@ const SignUp = () => {
     event.target.reset();
   };
 
-//   const logout = async () => {
-//     await signOut(auth);
-//     dispatch(deleteUser())
-//     navigate({
-//       pathname: '/'
-//     })
-//   };
 
   const register = () => {
     navigate({
@@ -71,36 +60,29 @@ const SignUp = () => {
 
   return (
     <>
-      <Header />
-
-      <div className="login-form">
-
-        <h3 className="login-form__title"> Login </h3>
+    <main className='login-page'>
+      <Header/>
+      <div className="login-page__login">
+        <h3 className="login-page__title"> Login </h3>
         <p>{popup}</p>
-        <form onSubmit={login} className='userForm'>
+        <form onSubmit={login} className='login-page__form'>
           <input
             name="loginEmail"
-            className="userForm__input"
+            className="login-page__form__input"
             placeholder="Email..."
           />
           <input
             type="password"
             name="loginPassword"
-            className="userForm__input"
+            className="login-page__form__input"
             placeholder="Password..."
           />
-          <input className="log_in_btn" type="submit" value="Log in"/> 
+          <input className="login-page__form__btn" type="submit" value="Log in"/> 
         </form>
-
-
-        {/* <h4 className="login-form__title"> User Logged In: </h4>
-        {loggedInUser}
-
-        <button className="login-form__btn" onClick={logout}> Sign Out </button> */}
-
-        <p className="account">No Account yet? Register here</p>
-        <button className="login-form__btn" onClick={register}> Register </button>
+        <p className="register__title">No Account yet? Register here</p>
+        <button className="register__btn" onClick={register}> Register </button>
       </div>
+      </main>
     </>
   );
 }
