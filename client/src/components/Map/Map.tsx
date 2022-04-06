@@ -39,6 +39,7 @@ return isLoaded ? (
       center={center}
       zoom={14}
       mapContainerStyle={containerStyle}
+      clickableIcons={false}
       // onLoad={onLoad}
       // onUnmount={onUnmount}
     >
@@ -53,6 +54,7 @@ return isLoaded ? (
         )}
 
       { selectedMarker && (<InfoWindow
+        
         position={{lat: selectedMarker.lat, lng:selectedMarker.lng}}
         onCloseClick={() => {setselectedMarker(null)}}
         
