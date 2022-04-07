@@ -19,9 +19,8 @@ const DogProfileForm = ({setData}: any) => {
     const formData = Object.fromEntries(new FormData(event.target));
     formData.ownerEmail = loggedInUser.email
     formData.ownerName = loggedInUser.name
-    console.log(formData)
 
-    axios.post(`${url}/api/add-dog`, formData)
+    await axios.post(`${url}/api/add-dog`, formData)
     .catch(err => console.log(err.message))
 
     const result = await axios.get(`${url}/api/pets`)

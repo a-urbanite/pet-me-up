@@ -29,13 +29,13 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
   const deleteProfile = async (id: string) => {
     if (window.confirm('Do you really want to delete this pet profile?')) {
       try {
-        fetch(`${url}/api/pets/${id}`, { method: 'DELETE'})
+        await fetch(`${url}/api/pets/${id}`, { method: 'DELETE'})
       } catch (err: any) {
         console.log(err.message)
       }
   
       const result = await axios.get(`${url}/api/pets`)
-      setData(result.data)
+      await setData(result.data)
     }
   }
 

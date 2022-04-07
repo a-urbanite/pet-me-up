@@ -37,10 +37,16 @@ mongoose.connect(uri);
             const coords = res.data.results[0].geometry.location
             return coords
         })
-        .catch((err) => {console.log(err)})
+        .catch((err) => {console.log('HELLO FROM THE ERROR SIDE', err)})
+    console.log('NEWCOORDS', newCoords)
+    if (newCoords === undefined) {
+      profileObject.lat = 0
+      profileObject.lng = 0
+    } else {
+      profileObject.lat = newCoords.lat
+      profileObject.lng = newCoords.lng
+    }
 
-    profileObject.lat = newCoords.lat
-    profileObject.lng = newCoords.lng
 
     return profileObject
   }

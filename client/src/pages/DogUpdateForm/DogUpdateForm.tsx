@@ -25,7 +25,7 @@ const DogProfileForm = ({setData}: any) => {
     formData.ownerName = loggedInUser.name
 
     try {
-      axios.put(`${url}/api/pets/${pet._id}`, formData)
+      await axios.put(`${url}/api/pets/${pet._id}`, formData)
     } catch (err: any) {
       console.log(err.message)
     } 
