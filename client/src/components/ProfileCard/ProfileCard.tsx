@@ -60,8 +60,8 @@ const ProfileCard = ({pet, setData}: ProfileCardProps) => {
         <p>Age: {pet.age}</p>
         <p hidden={!isClicked}>Gender: {pet.gender}</p>
         <p className='descr' hidden={!isClicked}>Description: {pet.description}</p>
-        <p hidden={!isClicked}>Owner: {pet.ownerName}</p>
-        <p className="profileCard__playDate"hidden={!isClicked}>Set a play date!</p>
+        { location.pathname==='/' && <p hidden={!isClicked}>Owner: {pet.ownerName}</p>}
+        { location.pathname==='/' && <p className="profileCard__playDate"hidden={!isClicked}>Set a play date!</p>}
         { location.pathname==='/' && <a className='profileCard__email profile' hidden={!isClicked} href={`mailto:${pet.ownerEmail}?subject=Hey! let our pets play!`}><MdOutlineMailOutline/></a> }
         { location.pathname==='/' &&  <Link className='profileCard__chat profile' hidden={!isClicked} to='/Profile/Chat'> <BiChat/></Link> }
         <br/>

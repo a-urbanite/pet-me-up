@@ -2,7 +2,7 @@
     padding-right: 10px !important;
      padding-bottom: 0px !important;
      max-width: 500px !important;
-     max-height: 926px !important;
+     max-height: 800px !important;
      min-width: 0px !important;
      position: absolute;
      box-sizing: border-box;
@@ -17,6 +17,7 @@
 
  .gm-style-iw-d {
      overflow: hidden !important;
+     max-height: 800px !important;
  }
 
  .gm-style-iw-t::after {
