@@ -1,5 +1,5 @@
 # Pet me Up! 
-Pet me Up was built in April 2021 as a graduation poject by a group of young developers in Stockholm, Sweden.
+Pet me Up was built in April 2021 as a graduation project by a group of young developers in Stockholm, Sweden.
 The idea for the application is to help pet owners finding playdates for their pets in an easy and fun way.
 
 [View Demo](https://ancient-basin-65065.herokuapp.com/ "View Demo").
