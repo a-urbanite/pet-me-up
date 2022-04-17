@@ -1,14 +1,15 @@
-import React from 'react'
-import { Pet, Pets } from '../../types'
+import { Pet } from '../../types'
 import ProfileCard from '../ProfileCard/ProfileCard'
 import './Gallery.css'
+const Gallery = ( { pets, setData }: any) => {
 
-const Gallery = ( { pets }: Pets) => {
   return (
-    <div className='Gallery'>          
+    <div >
+      <div className='Gallery'>
         {pets.map((pet: Pet) => 
-          <ProfileCard pet={pet}/>
+          <ProfileCard pet={pet} key={pet._id} setData={setData} />
           )}
+      </div>
     </div>
   )
 }

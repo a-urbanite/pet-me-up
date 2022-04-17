@@ -10,7 +10,15 @@ const schema = new Schema({
         type: 'string',
         required: true
     },
+    street_number: {
+        type: 'string',
+        required: true
+    },
     zip: {
+        type: 'string',
+        required: true
+    },
+    city: {
         type: 'string',
         required: true
     },
@@ -32,6 +40,22 @@ const schema = new Schema({
     },
     image: {
         type: 'string',
+        required: true
+    },
+    ownerEmail: {
+        type: 'string',
+        required: true
+    },
+    ownerName: {
+        type: 'string',
+        required: true
+    },
+    lat: {
+        type: 'number',
+        required: true
+    },
+    lng: {
+        type: 'number',
         required: true
     },
 }, { timestamps: true } )

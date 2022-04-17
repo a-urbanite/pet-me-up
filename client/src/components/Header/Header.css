@@ -1,5 +1,10 @@
-h1 {
-    color: red;
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+.header {
+    color: #012A4A;
     text-align: center;
-    margin: 1em;
+    margin-top: 1em;
+    font-weight: bolder;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 48px;
 }
