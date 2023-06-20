@@ -19,16 +19,24 @@ function App() {
   
   const loggedInUser = useAppSelector((state) => state.loggedInUser)
   React.useEffect(() => {
-    fetch(`${url}/api/pets`)
-      .then((res) => {
-        console.log("fetching from: ", `${url}/api/pets`)
-        console.log("res: ", res)
-        res.json()
-      })
-      .then((data: any) => {
-        console.log("data: ", data)
-        setData(data)
-      })
+    const fetcher = async () => {
+      const res = await fetch(`${url}/api/pets`)
+      const data = await res.json()
+      setData(data)
+    }
+    fetcher()
+
+    // fetch(`${url}/api/pets`)
+    //   .then((res) => {
+    //     console.log("fetching from: ", `${url}/api/pets`)
+    //     console.log("res: ", res)
+    //     res.json()
+    //   })
+    //   .then((data: any) => {
+    //     console.log("data: ", data)
+    //     setData(data)
+    //   })
+    
   }, []);
   
   return (
