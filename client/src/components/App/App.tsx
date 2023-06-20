@@ -21,6 +21,7 @@ function App() {
   React.useEffect(() => {
     fetch(`${url}/api/pets`)
       .then((res) => {
+        console.log("fetching from: ", `${url}/api/pets`)
         console.log("res: ", res)
         res.json()
       })
