@@ -25,7 +25,7 @@ function App() {
         console.log("res: ", res)
         res.json()
       })
-      .then((data) => {
+      .then((data: any) => {
         console.log("data: ", data)
         setData(data)
       })
