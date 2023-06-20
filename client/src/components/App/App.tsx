@@ -16,7 +16,6 @@ import { useAppSelector } from "../../redux/hooks";
 
 
 export const url = env.REACT_APP_BASE_URL || 'http://localhost:3001'
-// export const url = 'http://localhost:3001'
 function App() {
   const [data, setData] = React.useState([]);
   
