@@ -19,7 +19,7 @@ function App() {
   
   const loggedInUser = useAppSelector((state) => state.loggedInUser)
   React.useEffect(() => {
-    fetch(`${url}api/pets`)
+    fetch(`${url}/api/pets`)
       .then((res) => {
         console.log("fetching from: ", `${url}/api/pets`)
         console.log("res: ", res)
