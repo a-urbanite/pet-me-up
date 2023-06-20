@@ -20,8 +20,12 @@ function App() {
   const loggedInUser = useAppSelector((state) => state.loggedInUser)
   React.useEffect(() => {
     fetch(`${url}/api/pets`)
-      .then((res) => res.json())
+      .then((res) => {
+        console.log("res: ", res)
+        res.json()
+      })
       .then((data) => {
+        console.log("data: ", data)
         setData(data)
       })
   }, []);
