@@ -20,5 +20,4 @@ The idea for the application is to help pet owners finding playdates for their p
 # Contact
 - [Alexander staedtler](https://www.linkedin.com/in/alexander-staedtler/ "contact").
 - [Cristina Salazar](https://www.linkedin.com/in/cristinasalazarmunguia/ "contact").
-- [Ludwig Slettingdalen](https://www.linkedin.com/in/ludwig-slettingdalen/ "contact").
 - [Nemanja Dunic](https://www.linkedin.com/in/nemanjadunic/ "contact").
